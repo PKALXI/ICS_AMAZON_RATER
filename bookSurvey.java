@@ -202,6 +202,7 @@ public class bookSurvey extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         setSurveyData(jTextField1.getText(), jTextField2.getText(), jTextField3.getText());
+        JOptionPane.showMessageDialog(null, "You have successfully submitted!");
     }
 
     /**
