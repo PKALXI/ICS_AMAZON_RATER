@@ -9,6 +9,8 @@ package mysurvey;
  *
  * @author Luke
  */
+
+import java.io.FileWriter;
 public class bookSurvey extends javax.swing.JFrame {
 
     /**x
@@ -146,7 +148,21 @@ public class bookSurvey extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    
+    public setSurveyData(String a, String b, String c){
+    final String FILENAME = "SurveyData.txt";
+
+    FileWriter fw
+
+    try{
+        fw = new FileWriter(FILENAME, true);
+
+        fw.write(a + "," + b + "," + c + "\n");
+
+        fw.close();
+    }catch(Exception e){
+        e.printStackTrace();
+    }
+    }
     
     private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {                                        
         if (jTextField1.getText().equals("Type Here...")){
