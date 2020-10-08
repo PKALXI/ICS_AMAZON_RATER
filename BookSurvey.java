@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mysurvey;
+//package mysurvey;
 
 /**
  * @purpose This page obtains books, genres and authors the user likes to find which books are best suited to their tastes
