@@ -13,9 +13,9 @@ public class Customer {
     }
 
     public void setSurveyData(SurveyGenre surveyGen, SurveyBook SurveyBoo, SurveyAuthor SurveyAuth) {
-        surveyGenre = surveyGen;
-        surveyBook = surveyBoo;
-        surveyAuthor = surveyAuth;
+        surveyGenre = new SurveyGenre(surveyGen);
+        surveyBook = new SurveyBook(surveyBoo);
+        surveyAuthor = new SurveyAuthor(surveyAuth);
     }
 
     public String getFirstName() {
