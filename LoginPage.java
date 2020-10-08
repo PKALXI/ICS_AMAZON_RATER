@@ -161,6 +161,21 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_UsernameInputActionPerformed
 
     /**
+    *
+    */
+    private void PasswordInputFocusLost(java.awt.event.FocusEvent evt) {                                        
+        if(PasswordInput.getText().equals(""))
+            PasswordInput.setText("Password");
+    }                                       
+    /**
+    *
+    */
+    private void UsernameInputFocusLost(java.awt.event.FocusEvent evt) {                                        
+        if(UsernameInput.getText().equals(""))
+            UsernameInput.setText("Username");
+    }        
+    
+    /**
      * Clears the text field for the user when they click on PasswordInput
      * @param evt the FocusEvent that occurred
      */
@@ -207,7 +222,7 @@ public class LoginPage extends javax.swing.JFrame {
                         this.Login.setLastName(data[2]);
                         this.Login.setEmail(data[3]);
                         this.Login.setPassword(data[4]);
-                        
+                        JOptionPane.showMessageDialog(null, "You have successfully Logged in!");
                         
                     }
                     else{
