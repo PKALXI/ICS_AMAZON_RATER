@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mysurvey;
+//package mysurvey;
 
 /**
  *
  * @author Luke
  */
 
+import javax.swing.JOptionPane;
 import java.io.FileWriter;
 public class bookSurvey extends javax.swing.JFrame {
 
@@ -90,7 +91,7 @@ public class bookSurvey extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mysurvey/logo.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("logo2.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,24 +149,24 @@ public class bookSurvey extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    public setSurveyData(String a, String b, String c){
-    final String FILENAME = "SurveyData.txt";
+    public void setSurveyData(String a, String b, String c){
+        final String FILENAME = "SurveyData.txt";
 
-    FileWriter fw
+        FileWriter fw;
 
-    try{
-        fw = new FileWriter(FILENAME, true);
+        try{
+            fw = new FileWriter(FILENAME, true);
 
-        fw.write(a + "," + b + "," + c + "\n");
+            fw.write(a + "," + b + "," + c + "\n");
 
-        fw.close();
-    }catch(Exception e){
-        e.printStackTrace();
-    }
+            fw.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
     
     private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {                                        
-        if (jTextField1.getText().equals("Type Here...")){
+        if (jTextField1.getText().equals("Type here...")){
             jTextField1.setText("");
         }
     }                                       
@@ -177,7 +178,7 @@ public class bookSurvey extends javax.swing.JFrame {
     }                                     
 
     private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {                                        
-        if (jTextField2.getText().equals("Type Here...")){
+        if (jTextField2.getText().equals("Type here...")){
             jTextField2.setText("");
         }
     }                                       
@@ -189,7 +190,7 @@ public class bookSurvey extends javax.swing.JFrame {
     }                                     
 
     private void jTextField3FocusGained(java.awt.event.FocusEvent evt) {                                        
-        if (jTextField3.getText().equals("Type Here...")){
+        if (jTextField3.getText().equals("Type here...")){
             jTextField3.setText("");
         }
     }                                       
@@ -202,7 +203,7 @@ public class bookSurvey extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         setSurveyData(jTextField1.getText(), jTextField2.getText(), jTextField3.getText());
-        JOptionPane.showMessageDialog(null, "You have successfully submitted!");
+        JOptionPane.showMessageDialog(null, "Your Survey has been saved!");
     }
 
     /**

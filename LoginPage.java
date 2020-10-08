@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package booksmart_app;
+//package booksmart_app;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -41,7 +41,7 @@ public class LoginPage extends javax.swing.JFrame {
         this.PasswordInput.setEchoChar((char)0);
         this.PasswordInput.setText("Password");
         this.UsernameInput.setText("Username");
-        this.setVisible(true);
+        //this.setVisible(true);
     }
 
     /**
@@ -59,7 +59,7 @@ public class LoginPage extends javax.swing.JFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAutoRequestFocus(false);
+        setAutoRequestFocus(true);
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 
@@ -87,7 +87,7 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
-        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/booksmart_app/newpackage/Real_Logo.png"))); // NOI18N
+        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("Real_Logo.png"))); // NOI18N
         Logo.setText("jLabel1");
 
         jToggleButton1.setText("Enter");
@@ -167,7 +167,7 @@ public class LoginPage extends javax.swing.JFrame {
     private void PasswordInputFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PasswordInputFocusGained
         PasswordInput.setEchoChar('*');
         if(this.PasswordInput.getText().equals("Password"))
-        PasswordInput.setText("");
+            PasswordInput.setText("");
     }//GEN-LAST:event_PasswordInputFocusGained
 
     /**
@@ -175,8 +175,8 @@ public class LoginPage extends javax.swing.JFrame {
      * @param evt the FocusEvent that occurred
      */
     private void UsernameInputFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_UsernameInputFocusGained
-        if(this.PasswordInput.getText().equals("Username"))
-        UsernameInput.setText("");
+        if(this.UsernameInput.getText().equals("Username"))
+            UsernameInput.setText("");
     }//GEN-LAST:event_UsernameInputFocusGained
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed

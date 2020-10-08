@@ -4,7 +4,7 @@ public class Customer {
     private String lastName;
     private String password;
     private String username;
-    private SurveyData SurveyData;
+    private SurveyData surveyData;
 
     public SurveyData getSurveyData() {
         return surveyData;
