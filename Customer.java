@@ -12,7 +12,7 @@ public class Customer {
         return surveyData;
     }
 
-    public void setSurveyData(SurveyGenre surveyGen, SurveyBook SurveyBoo, SurveyAuthor SurveyAuth) {
+    public void setSurveyData(SurveyGenre surveyGen,SurveyBook SurveyBoo,SurveyAuthor SurveyAuth) {
         surveyGenre = new SurveyGenre(surveyGen);
         surveyBook = new SurveyBook(surveyBoo);
         surveyAuthor = new SurveyAuthor(surveyAuth);
