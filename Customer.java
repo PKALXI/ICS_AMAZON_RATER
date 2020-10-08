@@ -4,6 +4,15 @@ public class Customer {
     private String lastName;
     private String password;
     private String username;
+    private SurveyData surveyData;
+
+    public SurveyData getSurveyData() {
+        return surveyData;
+    }
+
+    public void setSurveyData(SurveyData surveyData) {
+        this.surveyData = surveyData;
+    }
 
     public String getFirstName() {
         return firstName;
