@@ -4,20 +4,11 @@ public class Customer {
     private String lastName;
     private String password;
     private String username;
-    private SurveyGenre surveyGenre;
-    private SurveyBook surveyBook;
-    private SurveyAuthor surveyAuthor;
+    private SurveyData SurveyData;
 
     public SurveyData getSurveyData() {
         return surveyData;
     }
-
-    public void setSurveyData(SurveyGenre surveyGen,SurveyBook SurveyBoo,SurveyAuthor SurveyAuth) {
-        surveyGenre = new SurveyGenre(surveyGen);
-        surveyBook = new SurveyBook(surveyBoo);
-        surveyAuthor = new SurveyAuthor(surveyAuth);
-    }
-
     public String getFirstName() {
         return firstName;
     }
