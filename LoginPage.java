@@ -218,10 +218,12 @@ public class LoginPage extends javax.swing.JFrame {
         
         Scanner sc = new Scanner(scanFrom);
         
+            boolean userFound=false;
             while(sc.hasNextLine())
             {
                 String[] data= sc.nextLine().split(",");
                 if(data[0].equals(this.Username)){
+                    userFound=true;
                     if(data[4].equals(this.Password)){
                         this.Login.setUsername(data[0]);
                         this.Login.setFirstName(data[1]);
@@ -234,9 +236,14 @@ public class LoginPage extends javax.swing.JFrame {
                     else{
                        this.Password=null;
                        this.PasswordInput.setEchoChar((char)0);
-                       this.PasswordInput.setText("Incorrect Username/Password");
+                       JOptionPane.showMessageDialog(null, "Incorrect Username or Password!");
                     }
                 }
+            }
+            if(!userFound){
+                this.Password=null;
+                this.PasswordInput.setEchoChar((char)0);
+                JOptionPane.showMessageDialog(null, "Incorrect Username or Password!");
             }
         }catch(FileNotFoundException e){
                System.out.println("ERROR: FileNotFound");
