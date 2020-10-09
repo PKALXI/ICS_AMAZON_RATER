@@ -40,6 +40,7 @@ public class bookSurvey extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(250, 250, 250));
@@ -93,6 +94,13 @@ public class bookSurvey extends javax.swing.JFrame {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("logo2.png"))); // NOI18N
 
+        jButton2.setText("Skip");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,6 +128,8 @@ public class bookSurvey extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(334, 334, 334)
                 .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -142,7 +152,9 @@ public class bookSurvey extends javax.swing.JFrame {
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addGap(48, 48, 48))
         );
 
@@ -163,7 +175,7 @@ public class bookSurvey extends javax.swing.JFrame {
         }catch(Exception e){
             e.printStackTrace();
         }
-    }
+    }    
     
     private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {                                        
         if (jTextField1.getText().equals("Type here...")){
@@ -173,7 +185,7 @@ public class bookSurvey extends javax.swing.JFrame {
 
     private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {                                      
         if (jTextField1.getText().equals("")){
-            jTextField1.setText("Type Here...");
+            jTextField1.setText("Type here...");
         }
     }                                     
 
@@ -185,7 +197,7 @@ public class bookSurvey extends javax.swing.JFrame {
 
     private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {                                      
         if (jTextField2.getText().equals("")){
-            jTextField2.setText("Type Here...");
+            jTextField2.setText("Type here...");
         }
     }                                     
 
@@ -197,14 +209,19 @@ public class bookSurvey extends javax.swing.JFrame {
 
     private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {                                      
         if (jTextField3.getText().equals("")){
-            jTextField3.setText("Type Here...");
+            jTextField3.setText("Type here...");
         }
     }                                     
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        setSurveyData(jTextField1.getText(), jTextField2.getText(), jTextField3.getText());
-        JOptionPane.showMessageDialog(null, "Your Survey has been saved!");
-    }
+    setSurveyData(jTextField1.getText(), jTextField2.getText(), jTextField3.getText());
+    JOptionPane.showMessageDialog(null, "Your Survey has been saved!");
+    }                                        
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        setSurveyData("none", "none", "none");
+        JOptionPane.showMessageDialog(null, "You have been fully registered!");
+    }                                        
 
     /**
      * @param args the command line arguments
@@ -243,6 +260,7 @@ public class bookSurvey extends javax.swing.JFrame {
     
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -253,4 +271,5 @@ public class bookSurvey extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration                   
+}         
 }
