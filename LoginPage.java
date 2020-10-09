@@ -68,6 +68,9 @@ public class LoginPage extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 PasswordInputFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                PasswordInputFocusLost(evt);
+            }
         });
         PasswordInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +82,9 @@ public class LoginPage extends javax.swing.JFrame {
         UsernameInput.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 UsernameInputFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                UsernameInputFocusLost(evt);
             }
         });
         UsernameInput.addActionListener(new java.awt.event.ActionListener() {
