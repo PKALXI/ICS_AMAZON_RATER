@@ -235,14 +235,12 @@ public class LoginPage extends javax.swing.JFrame {
                     }
                     else{
                        this.Password=null;
-                       this.PasswordInput.setEchoChar((char)0);
                        JOptionPane.showMessageDialog(null, "Incorrect Username or Password!");
                     }
                 }
             }
             if(!userFound){
                 this.Password=null;
-                this.PasswordInput.setEchoChar((char)0);
                 JOptionPane.showMessageDialog(null, "Incorrect Username or Password!");
             }
         }catch(FileNotFoundException e){
