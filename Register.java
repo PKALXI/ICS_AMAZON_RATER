@@ -418,8 +418,8 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_rePasswordFocusGained
 
     private void rePasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_rePasswordFocusLost
-        if (rePassword.getText().equals("Enter Password") || rePassword.getText().equals("")) {
-            rePassword.setText("Enter Password");
+        if (rePassword.getText().equals("Re-enter Password") || rePassword.getText().equals("")) {
+            rePassword.setText("Re-enter Password");
             rePassword.setEchoChar((char) 0);
         } else {
             rePassword.setEchoChar('*');
