@@ -15,13 +15,13 @@ import java.util.Scanner;
  */
 public class HelpPage extends javax.swing.JFrame {
 
-    private File helpPage;
+    private File helpPage= new File("help.txt");
     /**
      * Creates new form HelpPage
      */
-    public HelpPage(String helpPath) throws FileNotFoundException {
+    public HelpPage() throws FileNotFoundException {
         initComponents();
-        this.helpPage= new File(helpPath);
+        
         this.load();
     }
 
