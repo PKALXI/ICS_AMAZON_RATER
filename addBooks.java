@@ -58,6 +58,14 @@ public class addBooks extends javax.swing.JFrame {
         
         fwriter.close();
         outputFile.close();
+        
+        FileWriter fwriter2 = new FileWriter("C:\\Users\\Andreja\\Documents\\NetBeansProjects\\BookSmart\\genres.txt",true);
+        PrintWriter outputFile2 = new PrintWriter(fwriter2);
+        
+        outputFile2.println(arr[2] + " " + arr[2]);
+        
+        fwriter2.close();
+        outputFile2.close();
     }
     
     private void addFileImage() throws IOException{
