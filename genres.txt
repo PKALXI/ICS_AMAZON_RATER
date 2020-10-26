@@ -1,0 +1,94 @@
+action,action
+conflict,action
+fight,action
+fighting,action
+battle,action
+combat,action
+contest,action
+encounter,action
+engagement,action
+fray,action
+skirmish,action
+warfare,action
+fantasy,fantasy
+delusion,fantasy
+fancy,fantasy
+illusion,fantasy
+nightmare,fantasy
+reverie,fantasy
+vision,fantasy
+Atlantis,fantasy
+apparition,fantasy
+appearance,fantasy
+bubble,fantasy
+chimera,fantasy
+conceiving,fantasy
+creativity,fantasy
+daydream,fantasy
+envisioning,fantasy
+externalizing,fantasy
+fabrication,fantasy
+fairyland,fantasy
+fancying,fantasy
+fantasia,fantasy
+figment,fantasy
+flight,fantasy
+hallucination,fantasy
+imaginativeness,fantasy
+imagining,fantasy
+invention,fantasy
+mirage,fantasy
+objectifying,fantasy
+originality,fantasy
+rainbow,fantasy
+trip,fantasy
+utopia,fantasy
+vagary,fantasy
+air castle,fantasy
+flight of imagination,fantasy
+fool's paradise,fantasy
+head trip,fantasy
+mind trip,fantasy
+farce,comedy
+fun,comedy
+humor,comedy
+satire,comedy
+sitcom,comedy
+ball,comedy
+burlesque,comedy
+camp,comedy
+comicality,comedy
+drollery,comedy
+facetiousness,comedy
+funnies,comedy
+funniness,comedy
+grins,comedy
+hilarity,comedy
+hoopla,comedy
+humorousness,comedy
+interlude,comedy
+laughs,comedy
+merry-go-round,comedy
+picnic,comedy
+schtick,comedy
+slapstick,comedy
+takeoff,comedy
+travesty,comedy
+vaudeville,comedy
+witticism,comedy
+wittiness,comedy
+chaffing,comedy
+comic drama,comedy
+comicalness,comedy
+drollness,comedy
+field day,comedy
+fun and games,comedy
+gag show,comedy
+high camp,comedy
+high time,comedy
+jesting,comedy
+joking,comedy
+light entertainment,comedy
+play on,comedy
+send-up,comedy
+wisecracking,comedy
