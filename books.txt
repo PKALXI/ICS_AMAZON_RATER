@@ -1,7 +1,223 @@
-The Philosopher's Stone,J. K. Rowling,action
-The Chamber of Secrets,J. K. Rowling,action
-The Prisoner of Azkaban,J. K. Rowling,action
-The Goblet of Fire,J. K. Rowling,action
-The Order of the Phoenix,J. K. Rowling,action
-The Half-Blood Prince,J. K. Rowling,action
-The Deathly Hallows,J. K. Rowling,action
+The Philosopher's Stone,J. K. Rowling,fantasy
+The Chamber of Secrets,J. K. Rowling,fantasy
+The Prisoner of Azkaban,J. K. Rowling,fantasy
+The Goblet of Fire,J. K. Rowling,fantasy
+The Order of the Phoenix,J. K. Rowling,fantasy
+The Half-Blood Prince,J. K. Rowling,fantasy
+The Deathly Hallows,J. K. Rowling,fantasy
+1984,George Orwell,science fiction
+A Clockwork Orange,Anthony Burgess,science fiction
+A Death in the Family,James Agee,fictional autobiography
+A Handful of Dust,Evelyn Waugh,fiction
+A House for Mr. Biswas,V.S. Naipaul,fiction
+A Little Bit of Everything for Dummies,Several,educational
+A Man Called Ove,Fedrik Backman,fiction
+A Passage to India,E.M. Forster,political fiction
+All the King's Men,Robert Penn Warren,political fiction
+All the Wrong Questions: "Who Could That Be at This Hour?",Lemony Snicket,mystery
+All the Wrong Questions: "When Did You See Her Last?",Lemony Snicket,mystery
+All the Wrong Questions: "Shouldn't You Be in School?",Lemony Snicket,mystery
+All the Wrong Questions: "Why Is This Night Different from All Other Nights?",Lemony Snicket,mystery
+American Pastoral,Philip Roth,historical fiction
+An American Tragedy,Theodore Dreiser,crime fiction
+And Then There Were None,Agatha Christie,Mystery
+Animal Farm,George Orwell,political fiction
+Appointment in Samarra,John O'Hara,fiction
+Are You There God? It's Me Margaret,Judy Blume,young adult fiction
+At Swim-Two-Birds,Flann O'Brien,fiction
+Atonemnet,Ian McEwan,fiction
+A Series of Unfortunate Events: The Bad Beginning,Lemony Snicket,mystery
+A Series of Unfortunate Events: The Reptile Room,Lemony Snicket,mystery
+A Series of Unfortunate Events: The Wide Window,Lemony Snicket,mystery
+A Series of Unfortunate Events: The Miserable Mill,Lemony Snicket,mystery
+A Series of Unfortunate Events: The Austere Academy,Lemony Snicket,mystery
+A Series of Unfortunate Events: The Erstaz Elevator,Lemony Snicket,mystery
+A Series of Unfortunate Events: The Vile Village,Lemony Snicket,mystery
+A Series of Unfortunate Events:	The Hostile Hospital,Lemony Snicket,mystery
+A Series of Unfortunate Events:	The Carnivorous Carnival,Lemony Snicket,mystery
+A Series of Unfortunate Events:	The Slippery Slope,Lemony Snicket,mystery
+A Series of Unfortunate Events:	The Penultimte Peril,Lemony Snicket,mystery
+A Series of Unfortunate Events:	The End,Lemony Snicket,mystery
+Bear Town,Fredrik Backman,fiction
+Beloved,Toni Morrison,historical fiction
+Blood Meridan,Cormac McCarthy,western
+Brideshead Revisited,Evelyn Waugh,fiction
+Building a Web Site for Dummies,David A. Crowder,educational
+Building Your Own Home for Dummies,Kevin Daum and Others,educational
+Call It Sleep,Henry Roth,fiction
+Catch-22,Joseph Heller,historical fiction
+Catching Fire,Suzanne Collins,young adult fiction
+Crooked House,Agatha Christie,mystery
+Cujo,Stephen King,horror
+Death Comes for the Archbishop,Willa Cather,historical fiction
+Death on the Nile,Agatha Christie,mystery
+Deliverance,James Dickey,adventure
+Depression for Dummies,Laura L.Smith and Others,educational
+Diary of a Wimpy Kid,Jeff Kinney,young adult fiction
+Diary of a Wimpy Kid: Roderick Rules,Jeff Kinney,young adult fiction
+Diary of a Wimpy Kid: The Last Straw,Jeff Kinney,young adult fiction
+Diary of a Wimpy Kid: Dog Days,Jeff Kinney,young adult fiction
+Diary of a Wimpy Kid: The Ugly Truth,Jeff Kinney,young adult fiction
+Diary of a Wimpy Kid: Cabin Fever,Jeff Kinney,young adult fiction
+Diary of a Wimpy Kid: The Third Wheel,Jeff Kinney,young adult fiction
+Diary of a Wimpy Kid: Hard Luck,Jeff Kinney,young adult fiction
+Diary of a Wimpy Kid: The Long Haul,Jeff Kinney,young adult fiction
+Diary of a Wimpy Kid: Old School,Jeff Kinney,young adult fiction
+Diary of a Wimpy Kid: Double Down,Jeff Kinney,young adult fiction
+Diary of a Wimpy Kid: The Getaway,Jeff Kinney,young adult fiction
+Diary of a Wimpy Kid: The Meltdown,Jeff Kinney,young adult fiction
+Diary of a Wimpy Kid: Wrecking Ball,Jeff Kinney,young adult fiction
+Diary of a Wimpy Kid: The Deep End,Jeff Kinney,young adult fiction
+Digital Video For Dummies,Keith Underdahl,educational
+Do Androids Dream of Electric Sheep,Philip K. Dick,science fiction
+Dog Soldiers,Robert Stone,horror
+End of Watch, Stephen King,horror
+Endless Night,Agatha Christie,mystery
+Falconer,John Cheever,fiction
+Finders Keepers,Stephen King,horror
+Go Tell it on the Mountain,James Baldwin,autobiography
+Gone With the Wind,Margaret Mitchell,romance
+Gravity's Raindow,Thomas Pynchon,historical fiction
+Heart of Darkness,Joseph Conrad,fiction
+Herzog,Saul Bellow,fiction
+Holes,Louis Sachar,young adult fiction
+Housekeeping,Marilynne Robinson,fiction
+I-Claudius,Robert Graves,historical fiction
+I'm Thinking of Ending Things,Iain Reid,horror
+Infinite Jest,David Foster Wallace,science fiction
+Invisible Man,Ralph Ellison,horror
+It Ends With Us,Colleen Hoover,romance
+It,Stephen King,horror
+Java For Dummies,Barry Burd,educational
+Knock-Em-Stiff,Donald Ray Pollock,fiction
+Light in August,William Faulkner,fiction
+Lolita,Vladimer Nabokov,fiction
+Lord of the Flies,William Golding,young adult fiction
+Loving,Henry Green,romance
+Lucky Jim,Kingsley Amis,fiction
+Macbeth,William Shakespeare,tragedy
+MastherChef Junior Cookbook,MasterChef,educational
+Midnight's Children,Salman Rushdie,historical fiction
+Misery,Stephen King,Horror
+Moby Dick,Hermen Melville,fiction
+Mockingjay,Suzanne Collins,young adult fiction
+Money,Martin Amis,fiction
+Mr. Mercedes,Stephen King,horror
+Mrs Dalloway,Virgina Woolf,fiction
+Murder on the Orient Express,Agatha Christie,mystery
+Naked Lunch,William Burroughs,science fiction
+Native Son,Vintage Wright,fiction
+Neuromancer,William Gibson,science fiction
+Never Let Me Go,Kazuo Ishiguro,science fiction
+Night Shift,Stephen King,horror
+On The Road,Jack Kerouac,autobiography
+One Flew Over the Cuckoo's Nest,Ken Kesey,fiction
+Othello,Wiliam Shakespeare,tradgedy
+Pale Fire,Vladimir Nabokov,fiction
+Percy Jackson and the Lightning Thief,Rick Riordan,young adult fiction
+Percy Jackson and The Sea of Monsters,Rick Riordan,young adult fiction
+Percy Jackson and the Titans Curse,Rick Riordan,young adult fiction
+Percy Jackson and the Battle of the Labyrinth,Rick Riordan,young adult fiction
+Percy Jackson and the Last Olympian,Rick Riordan,young adult fiction
+Play It As It Lays,Joan Didion,fiction
+Possession,A.S. Byatt,romance
+Portnoy's Complaint,Philip Roth,fiction
+Python For Dummies,Stef Maruch and Aahz Maruch,educational
+Rabbit-Run,John Updike,fiction
+Ragtime,E.L. Doctorow,historical fiction
+Red Harvest,Dashiell Hammett,mystery
+Revolutionary Road,Vintage Yates,romance
+Shawshank Redemption,Stephen King,mystery
+Romeo and Juliet,William Shakespeare,tragedy
+Rum Punch,Elmore Leornard,mystery
+Sherlock Holmes,Arthur Conan Doyle,mystery
+Slaughterhouse Five,Kurt Vonnegut,science fiction
+Snow Crash,Neal Stephenson,science fiction
+Tasty Ultimate,Several Authors,educational
+Tasty: Latest and Greatest,Several Authors,educational
+The ABC Murders,Agatha Christie,mystery
+The Adventures of Augie March,Saul Bellow,fiction
+The Adventures of Tom Sawyer,Mark Twain,young adult fiction
+The Assistant,Bernard Malamud,romance
+The Ballad of Songbirds and Snakes,Suzanne Collins,young adult fiction
+The Berlin Stories,Christopher Isherwood,historical fiction
+The Big Sleep,Raymond Chandler,mystery
+The Blind Assassin,Margaret Atwood,historical fiction
+The Bluest Eye,Toni Morrison,fiction
+The Body,Stephen King,mystery
+The Bridge of San Luis Rey,Thornton Wilder,historical fiction
+The Catcher in the Rye,J.D. Salinger,romance
+The Complete Vegan Cookbook,Chloe Coscarelli,educational
+The Confessions of Nat Turner,William Styron,historical fiction
+The Corrections,Jonathan Franzen,fiction
+The Crying of Lot 49,Thomas Pynchon,fiction
+The Day of the Locust,Nathanael West,fiction
+The Death of the Heart,Elizabeth Bowen,romance
+The Devil All the Time,Donald Ray Pollock,horror
+The Family Corleon,Ed Falco,historical fiction
+The Fault in Our Stars,John Green,young adult fiction
+The Fellowship of the Ring,J.R.R. Tolkien,fiction
+The French Lieutenant's Woman,John Fowles,romance
+The Girl in the Spiders Web,David Lagercrantz,mystery
+The Girl Who Kicked the Hornet's Nest,Stieg Larsson,mystery
+The Girl Who Played With Fire,Stieg Larsson,mystery
+The Girl With The Dragon Tattoo,Stieg Larsson,mystery
+The Godfather Returns,Mark Winegardner,historical fiction
+The Godfather,Mario Puzo,historical fiction
+The Godfather's Revenge,Mark Winegardner,historical fiction
+The Golden Notebook,Doris Lessing,fiction
+The Grapes of Wrath,John Steinbeck,historical fiction
+The Great Gatsby,F.Scott Fitzgerald,tragedy
+A Series of Unfortunate Events:The Grim Grotto,Lemony Snicket,mystery
+The Hate U Give,Angie Thomas,young adult fiction
+The Heart of the Matter,Graham Greene,fiction
+The Heart is a Lonely Hunter,Carson McCullers,romance
+The Hunger Games,Suzanne Collins,young adult fiction
+Batman: The Killing Joke,Alan Moore,fiction
+The Land of Stories: A Grimm Warning,Chris Colfer,young adult fiction
+The Land of Stories: An Author's Odyssey,Chris Colfer,young adult fiction
+The Land of Stories: Beyond the Kingdoms,Chris Colfer,young adult fiction
+The Land of Stories: The Enchantress Returns,Chris Colfer,young adult fiction
+The Land of Stories: The Wishing Well,Chris Colfer,young adult fiction
+The Land of Stories: World Collide,young adult fiction
+The Lion-The Witch and The Wardrobe,C.S Lewis,young adult fiction
+The Man Who Loved Children,Christina Stead,fiction
+The Mousetrap,Agatha Christie,mystery
+The Moviegoer,Walker Percy,fiction
+The Murder of Roger Ackroyd,Agatha Christie,mystery
+The Mysterious Affair at Styles,Agatha Christie,mystery
+The Painted Bird,Percy Rosinski,fiction
+The Power and the Glory,Graham Greene,historical fiction
+The Prime of Miss Jean Brodie,Muriel Spark,fiction
+The Recognitions,William Gaddis,fiction
+The Return of the King,J.R.R. Tolkein,fiction
+The Sheltering Sky,Debra Winger,romance
+The Shining,Stephen King,horror
+The Sicilian,Mario Puzo,historical fiction
+The Sot-Weed Factor,John Barth,fiction
+The Sound and the Fury,William Faulkner,fiction
+The Sportswriter,Richard Ford,fiction
+The Spy Who Came In From The Cold,Jonn LeCarre,mystery
+The Stand,Stephen King,horror
+The Sun Also Rises,Ernest Hemingway,historical fiction
+The Two Towers,J.R.R. Tolkien,fiction
+The Wars,Timothy Findley,fiction
+Their Eyes Were Watching God,Zora Neale Hurston,fiction
+Things Fall Apart,Chinua Achebe,historical fiction
+To Kill a Mockingbird,Harper Lee,young adult fiction
+To The Lighthouse,Virgina Woolf,fiction
+Tropic of Cancer,Henry Miller,autobiography
+Twilight,Stephenie Meyer,romance
+Twilight: Breaking Dawn,Stephenie Meyer,romance
+Twilight: Eclipse,Stephenie Meyer,romance
+Twilight: Midnight Sun,Stephenie Meyer,romance
+Twilight: New Moon,Stephenie Meyer,romance
+Ubik,Philip K. Dick,science fiction
+Under The Net,Iris Murdoch,romance
+Under the Volcano,Malcolm Lowry,fiction
+Us Against You,Frederick Backman,young adult fiction
+Watchmen,Alan Moore,science fiction
+White Noise,Don Delillo,fiction
+White Teeth,Zadie Smith,historical fiction
+Wide Sargasso Sea,Jean Rhys,historical fiction
+Wise Guy,Nicholas Pileggi,autobiography
