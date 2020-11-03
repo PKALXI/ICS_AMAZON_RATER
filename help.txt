@@ -1,0 +1,2 @@
+***Reference manual to be added with final documentation***
+This page serves to show that a guide can be loaded.
