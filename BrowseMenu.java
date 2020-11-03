@@ -1,3 +1,15 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package booksmart;
+
+/**
+ *
+ * @author Luke
+ */
+
 import java.io.*;
 import java.util.*;
 import java.util.logging.Level;
@@ -6,28 +18,25 @@ import java.util.logging.Logger;
 
 public class BrowseMenu extends javax.swing.JFrame {
  
-    File bookStuff = new File("books.txt");
+    File bookStuff = new File("C:\\Users\\Andreja\\Documents\\NetBeansProjects\\BookSmart\\books.txt");
     Scanner bookInfo;
     
     private Customer customer;
-
     /**
      * Creates new form BrowseMenu
      */
-    public BrowseMenu(Customer customer) {
+    public BrowseMenu(Customer customer)  {
         this.customer = customer;
         initComponents();
-        this.bookInfo = null;
-
         try {
             this.bookInfo = new Scanner(bookStuff);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(BrowseMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public void readReset() throws IOException {
-        File bookStuff = new File("books.txt");
+        File bookStuff = new File("C:\\Users\\Andreja\\Documents\\NetBeansProjects\\BookSmart\\books.txt");
         bookInfo = new Scanner(bookStuff); 
     }
     
@@ -45,6 +54,8 @@ public class BrowseMenu extends javax.swing.JFrame {
         searchButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
+        searchBar1 = new javax.swing.JTextField();
+        searchButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuLogo = new javax.swing.JMenu();
         menuRecommended = new javax.swing.JMenu();
@@ -77,9 +88,22 @@ public class BrowseMenu extends javax.swing.JFrame {
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 
+        searchBar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBar1ActionPerformed(evt);
+            }
+        });
+
+        searchButton1.setText("Go To Book");
+        searchButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButton1ActionPerformed(evt);
+            }
+        });
+
         jMenuBar1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        menuLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("logo_Menu.png"))); // NOI18N
+        menuLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/booksmart/logo_Menu.png"))); // NOI18N
         menuLogo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuLogoMouseClicked(evt);
@@ -105,7 +129,7 @@ public class BrowseMenu extends javax.swing.JFrame {
         });
         jMenuBar1.add(menuRandom);
 
-        menuBrowse.setText("Main Menu");
+        menuBrowse.setText("Browse");
         menuBrowse.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuBrowse.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -159,6 +183,12 @@ public class BrowseMenu extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane2)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(searchBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,8 +200,12 @@ public class BrowseMenu extends javax.swing.JFrame {
                     .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchButton1))
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -184,22 +218,17 @@ public class BrowseMenu extends javax.swing.JFrame {
             Logger.getLogger(BrowseMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
         jTextArea2.setText("");
-        String[] searched = null;
-        searched = searchBar.getText().split("");
-        String[] title = null;
+        String searched = "";
+        searched = searchBar.getText();
+        String theTitle = "";
         while (bookInfo.hasNextLine()) {
-        title =  bookInfo.nextLine().split("");
-        if (searched.length > title.length) continue;
-        for (int a = 0; a < searched.length; a++) {
-            if (searched[a].equalsIgnoreCase(title[a])){
-                if (a == (searched.length - 1)) {
-                    jTextArea2.setText(jTextArea2.getText() + String.join("", title) + "\n");
-                    break;
-                }
-                else continue;
+            theTitle =  bookInfo.nextLine();
+
+            String [] title = theTitle.split(",");
+
+            if(theTitle.toLowerCase().contains(searched.toLowerCase())){
+                jTextArea2.setText(jTextArea2.getText() + String.join("", (title[0] + " by: " + title[1])) + "\n");
             }
-            else break; 
-        }
         }
     }//GEN-LAST:event_searchButtonActionPerformed
 
@@ -208,80 +237,101 @@ public class BrowseMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_menuLogoMouseClicked
 
     private void menuRecommendedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuRecommendedMouseClicked
-        new Recommend(this.customer).setVisible(true);
-        this.setVisible(false);
+        
     }//GEN-LAST:event_menuRecommendedMouseClicked
 
     private void menuRandomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuRandomMouseClicked
-        new RandomBook(customer).setVisible(true);
-        this.setVisible(false);
+        
     }//GEN-LAST:event_menuRandomMouseClicked
 
     private void menuBrowseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBrowseMouseClicked
-        try {
-            new mainMenu(this.customer).setVisible(true);
-        } catch (Exception e) {
-            Logger.getLogger(addBooks.class.getName()).log(Level.SEVERE, null, e);
-        }
-        this.setVisible(false);
+        
     }//GEN-LAST:event_menuBrowseMouseClicked
 
     private void menuRatedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuRatedMouseClicked
-        new SeeRated(this.customer).setVisible(true);
-        this.setVisible(false);
+        
     }//GEN-LAST:event_menuRatedMouseClicked
 
     private void menuAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuAddMouseClicked
-        try {
-            new addBooks(this.customer).setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(mainMenu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        this.setVisible(false);
+        
     }//GEN-LAST:event_menuAddMouseClicked
 
     private void searchBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBarActionPerformed
         
     }//GEN-LAST:event_searchBarActionPerformed
 
+    private void searchBar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBar1ActionPerformed
+        
+    }//GEN-LAST:event_searchBar1ActionPerformed
+
+    private void searchButton1ActionPerformed(java.awt.event.ActionEvent evt)  {//GEN-FIRST:event_searchButton1ActionPerformed
+        try {
+            readReset();
+        } catch (IOException ex) {
+            Logger.getLogger(BrowseMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String searched = "";
+        searched = searchBar1.getText();
+        String theTitle = "";
+        int lineNumber = 0;
+        while (bookInfo.hasNextLine()) {
+            theTitle =  bookInfo.nextLine();
+            lineNumber += 1;
+
+            String [] title = theTitle.split(",");
+            
+            System.out.println(title[0]);
+
+            if(title[0].toLowerCase().equals(searched.toLowerCase())){
+                try {
+                    new BookPage(title[0], title[1], lineNumber,customer).setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(BrowseMenu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                this.setVisible(false);
+                break;
+            }
+        }
+    }//GEN-LAST:event_searchButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    // public static void main(String args[]) {
-    //     /* Set the Nimbus look and feel */
-    //     //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-    //     /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-    //      * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-    //      */
-    //     try {
-    //         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-    //             if ("Nimbus".equals(info.getName())) {
-    //                 javax.swing.UIManager.setLookAndFeel(info.getClassName());
-    //                 break;
-    //             }
-    //         }
-    //     } catch (ClassNotFoundException ex) {
-    //         java.util.logging.Logger.getLogger(BrowseMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    //     } catch (InstantiationException ex) {
-    //         java.util.logging.Logger.getLogger(BrowseMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    //     } catch (IllegalAccessException ex) {
-    //         java.util.logging.Logger.getLogger(BrowseMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    //     } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-    //         java.util.logging.Logger.getLogger(BrowseMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    //     }
-    //     //</editor-fold>
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(BrowseMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(BrowseMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(BrowseMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(BrowseMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
-    //     /* Create and display the form */
-    //     java.awt.EventQueue.invokeLater(new Runnable() {
-    //         public void run() {
-    //             try {
-    //                 new BrowseMenu().setVisible(true);
-    //             } catch (FileNotFoundException ex) {
-    //                 Logger.getLogger(BrowseMenu.class.getName()).log(Level.SEVERE, null, ex);
-    //             }
-    //         }
-    //     });
-    // }
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                //try {
+              //     new BrowseMenu().setVisible(true);
+              //  } catch (FileNotFoundException ex) {
+               //     Logger.getLogger(BrowseMenu.class.getName()).log(Level.SEVERE, null, ex);
+             //   }
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
@@ -296,6 +346,8 @@ public class BrowseMenu extends javax.swing.JFrame {
     private javax.swing.JMenu menuRated;
     private javax.swing.JMenu menuRecommended;
     private javax.swing.JTextField searchBar;
+    private javax.swing.JTextField searchBar1;
     private javax.swing.JButton searchButton;
+    private javax.swing.JButton searchButton1;
     // End of variables declaration//GEN-END:variables
 }
