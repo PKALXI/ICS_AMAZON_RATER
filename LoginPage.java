@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import javax.swing.JOptionPane;
 
 
 /**
@@ -30,7 +30,7 @@ public class LoginPage extends javax.swing.JFrame {
     private Customer Login;
     
     //User info file
-    private final String SEARCHFROM ="Users.txt";
+    private final String SEARCHFROM ="UserData/Users.txt";
     
     
     /**
@@ -93,7 +93,7 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
-        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("Real_Logo.png"))); // NOI18N
+        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/Real Logo.png"))); // NOI18N
         Logo.setText("jLabel1");
 
         jToggleButton1.setText("Enter");
@@ -170,8 +170,11 @@ public class LoginPage extends javax.swing.JFrame {
     *
     */
     private void PasswordInputFocusLost(java.awt.event.FocusEvent evt) {                                        
-        if(PasswordInput.getText().equals(""))
+        if(PasswordInput.getText().equals("")){
+            this.PasswordInput.setEchoChar((char)0);
             PasswordInput.setText("Password");
+        }
+            
     }                                       
     /**
     *
@@ -218,20 +221,46 @@ public class LoginPage extends javax.swing.JFrame {
         
         Scanner sc = new Scanner(scanFrom);
         
+        int count = 0;
             boolean userFound=false;
             while(sc.hasNextLine())
             {
+                count++;
                 String[] data= sc.nextLine().split(",");
                 if(data[0].equals(this.Username)){
                     userFound=true;
                     if(data[4].equals(this.Password)){
+                        this.Login = new Customer();
                         this.Login.setUsername(data[0]);
                         this.Login.setFirstName(data[1]);
                         this.Login.setLastName(data[2]);
                         this.Login.setEmail(data[3]);
                         this.Login.setPassword(data[4]);
+                        
+                        Scanner read = null;
+
+                        File surveyData = new File("UserData/SurveyData.txt");
+
+                        try{
+                            read = new Scanner(surveyData);
+                        }catch(Exception e){
+                            e.printStackTrace();
+                        }
+                        
+                        int readCount = 1;
+                        while(read.hasNextLine()){
+                            String [] line = read.nextLine().split(",");
+                            if(readCount == count){
+                                
+                                this.Login.setSurveyData(new SurveyData(line[0], line[1], line[2]));
+                            }
+                        }
+
                         JOptionPane.showMessageDialog(null, "You have successfully Logged in!");
                         
+                        new mainMenu(this.Login).setVisible(true);
+                        this.setVisible(false);
+
                     }
                     else{
                        this.Password=null;

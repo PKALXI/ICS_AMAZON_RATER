@@ -33,7 +33,7 @@ public class firstScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("Real Logo.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/Real Logo.png"))); // NOI18N
         jLabel2.setText("jLabel2");
 
         jButton1.setText("Register");

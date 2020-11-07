@@ -7,6 +7,7 @@
 
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -14,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -28,6 +30,8 @@ public class Register extends javax.swing.JFrame {
      */
     public Register() {
         initComponents();
+        password.setEchoChar((char) 0);
+        rePassword.setEchoChar((char) 0);
     }
 
     /**
@@ -138,7 +142,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("logo.png"))); // NOI18N
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/logo.png"))); // NOI18N
         logo.setText("Place holder");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -290,7 +294,7 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_registerButtonActionPerformed
 
     public void storeUser(String username, String firstName, String lastName, String email, String password){
-        final String FILENAME = "Users.txt";
+        final String FILENAME = "UserData/Users.txt";
 
         FileWriter fw;
         
@@ -306,7 +310,7 @@ public class Register extends javax.swing.JFrame {
     }
 
     public int userExists(String enteredUsername, String enteredEmail){
-        final String FILENAME = "Users.txt";
+        final String FILENAME = "UserData/Users.txt";
 
         //DEV NOTE: only the username and email have to be unique
         File file = new File(FILENAME);
@@ -346,9 +350,6 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_firstNameFocusLost
 
     private void firstNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_firstNameFocusGained
-        password.setEchoChar((char) 0);
-        rePassword.setEchoChar((char) 0);
-
         if (firstName.getText().equals("Enter First Name")) {
             firstName.setText("");
         }
