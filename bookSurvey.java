@@ -81,11 +81,11 @@ public class bookSurvey extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("List your favourite genres.");
+        jLabel1.setText("List your 3 favourite genres.");
 
-        jLabel2.setText("List your favourite books.");
+        jLabel2.setText("List your 3 favourite books.");
 
-        jLabel3.setText("List your favourite authors.");
+        jLabel3.setText("List your 3 favourite authors.");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(67, 55, 53));
