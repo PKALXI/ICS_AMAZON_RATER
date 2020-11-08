@@ -6,12 +6,18 @@
 //package mysurvey;
 
 /**
- *
- * @author Luke
- */
+* This page both prompts the registering user for and stores their taste in literature, giving the book recommendation algorithm a more informed starting point
+* Author: Luke Cihra
+* Date Created: October 1, 2020
+* Last Modified: October 9, 2020
+* Assumptions: User input will be 3 of the type being asked for, each separated by a comma and a space
+**/
 
+//allows implementation of jFrame
 import javax.swing.JOptionPane;
+//allows page to write to file
 import java.io.FileWriter;
+
 public class bookSurvey extends javax.swing.JFrame {
 
     /**x
@@ -161,75 +167,98 @@ public class bookSurvey extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
+    /**
+    * Takes user's answers in registration survey and stores them in external data file
+    * @param a User's 3 favourite genres
+    * @param b User's 3 favourite books
+    * @param c User's 3 favourite authors
+    */
     public void setSurveyData(String a, String b, String c){
-        final String FILENAME = "UserData/SurveyData.txt";
-
+        //preparing to write to external file
+        final String FILENAME = "SurveyData.txt";
         FileWriter fw;
+        
 
         try{
             fw = new FileWriter(FILENAME, true);
 
-            fw.write(a + "," + b + "," + c + "\n");
+            fw.write(a + "," + b + "," + c + "\n");//writes user input on one line in external file
 
-            fw.close();
+            fw.close();//closes fileWriter to conserve memory
         }catch(Exception e){
             e.printStackTrace();
         }
-    }    
+    }//end of setSurveyData method    
     
+    /**
+    * Makes jTextField1 (where user enters favourite genres) blank when clicked on for first time by user
+    */  
     private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {                                        
         if (jTextField1.getText().equals("Type here...")){
             jTextField1.setText("");
         }
     }                                       
 
+    /**
+    * If user clicks on jTextField1 but doesn't type anything and clicks off, revert textfield back to displaying sample text "Type here"
+    */ 
     private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {                                      
         if (jTextField1.getText().equals("")){
             jTextField1.setText("Type here...");
         }
     }                                     
 
+    /**
+    * Makes jTextField2 (where user enters favourite books) blank when clicked on for first time by user
+    */     
     private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {                                        
         if (jTextField2.getText().equals("Type here...")){
             jTextField2.setText("");
         }
     }                                       
 
+    /**
+    * If user clicks on jTextField1 but doesn't type anything and clicks off, revert textfield back to displaying sample text "Type here"
+    */ 
     private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {                                      
         if (jTextField2.getText().equals("")){
             jTextField2.setText("Type here...");
         }
     }                                     
 
+    /**
+    * Makes jTextField3 (where user enters favourite authors) blank when clicked on for first time by user
+    */  
     private void jTextField3FocusGained(java.awt.event.FocusEvent evt) {                                        
         if (jTextField3.getText().equals("Type here...")){
             jTextField3.setText("");
         }
     }                                       
 
+    /**
+    * If user clicks on jTextField1 but doesn't type anything and clicks off, revert textfield back to displaying sample text "Type here"
+    */ 
     private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {                                      
         if (jTextField3.getText().equals("")){
             jTextField3.setText("Type here...");
         }
     }                                     
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {  
-        System.out.println(true);                                       
-        setSurveyData(jTextField1.getText(), jTextField2.getText(), jTextField3.getText());
-        JOptionPane.showMessageDialog(null, "Your Survey has been saved!");
-
-        System.out.println(true);
-        new firstScreen().setVisible(true);
-        this.setVisible(false);
+    /**
+    * instantiates setSurveyData with user's answers when user clicks "Submit" button
+    */ 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    setSurveyData(jTextField1.getText(), jTextField2.getText(), jTextField3.getText());
+    JOptionPane.showMessageDialog(null, "Your Survey has been saved!");
     }                                        
 
+    /**
+    * instantiates setSurveyData with nothing if they choose to skip the survey
+    */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         setSurveyData("none", "none", "none");
         JOptionPane.showMessageDialog(null, "You have been fully registered!");
-
-        new firstScreen().setVisible(true);
-        this.setVisible(false);
-    }                                        
+    }                                         
 
     /**
      * @param args the command line arguments
@@ -279,4 +308,4 @@ public class bookSurvey extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration                   
-}         
+}//end of class BookSurvey         
