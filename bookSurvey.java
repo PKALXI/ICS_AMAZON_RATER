@@ -11,7 +11,7 @@
 * Date Created: October 1, 2020
 * Last Modified: October 9, 2020
 * Assumptions: User input will be 3 of the type being asked for, each separated by a comma and a space
-**/
+*/
 
 //allows implementation of jFrame
 import javax.swing.JOptionPane;
