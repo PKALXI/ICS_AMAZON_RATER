@@ -1,9 +1,13 @@
 
 /**
- *
- * @author Luke
- */
+* This page lets the user search for specific books, either by title, author or genre – they can then use the bottom search bar to access the specific page for that book
+* Author: Luke Cihra
+* Date Created: October 17, 2020
+* Last Modified: November 2, 2020
+* Assumptions: 
+**/
 
+//allows page to read from external file, 
 import java.io.*;
 import java.util.*;
 import java.util.logging.Level;
@@ -11,6 +15,7 @@ import java.util.logging.Logger;
 
 public class BrowseMenu extends javax.swing.JFrame {
 
+    //preparing to read from books.txt
     File bookStuff = new File("books.txt");
     Scanner bookInfo;
 
@@ -29,6 +34,9 @@ public class BrowseMenu extends javax.swing.JFrame {
         }
     }
 
+     /**
+     * resets scanner reading external books.txt file to start at beginning
+     */
     public void readReset() throws IOException {
         File bookStuff = new File("books.txt");
         bookInfo = new Scanner(bookStuff);
@@ -199,22 +207,25 @@ public class BrowseMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+    * Displays list of books which pertain to search made by user in upper searchbar
+    */    
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_searchButtonActionPerformed
         try {
-            readReset();
+            readReset();//starts scanner at beginning of books.txt to compare all books listed with user's search
         } catch (IOException ex) {
             Logger.getLogger(BrowseMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
-        jTextArea2.setText("");
-        String searched = "";
+        jTextArea2.setText("");//sets jTextArea2 (where book list is displays) blank in case there are books listed there from a prior search
+        String searched = "";//stores string entered in upper search bar by user
         searched = searchBar.getText();
-        String theTitle = "";
+        String theTitle = "";//stores titles of books in books.txt to be compared to searched
         while (bookInfo.hasNextLine()) {
             theTitle = bookInfo.nextLine();
 
-            String[] title = theTitle.split(",");
+            String[] title = theTitle.split(",");//stores all the book's title, author and genre in the database and splits each of the aforementioned 3 areas by commas
 
-            if (theTitle.toLowerCase().contains(searched.toLowerCase())) {
+            if (theTitle.toLowerCase().contains(searched.toLowerCase())) { //displays list of books with information that matches what the user searched
                 jTextArea2.setText(jTextArea2.getText() + String.join("", (title[0] + " by: " + title[1])) + "\n");
             }
         }
@@ -267,27 +278,29 @@ public class BrowseMenu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_searchBar1ActionPerformed
 
+
+    /**
+    * Accesses specific book page for book searched for in lower search bar by user
+    */ 
     private void searchButton1ActionPerformed(java.awt.event.ActionEvent evt)  {//GEN-FIRST:event_searchButton1ActionPerformed
         try {
-            readReset();
+            readReset(); //starts scanner at beginning of books.txt to compare all books listed with user's search
         } catch (IOException ex) {
             Logger.getLogger(BrowseMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String searched = "";
+        String searched = "";//stores string entered in lower search bar by user
         searched = searchBar1.getText();
-        String theTitle = "";
-        int lineNumber = 0;
+        String theTitle = "";//stores titles of books in books.txt to be compared to searched
+        int lineNumber = 0; //stores line number of book info in theTitle in the external text file books.txt
         while (bookInfo.hasNextLine()) {
             theTitle =  bookInfo.nextLine();
             lineNumber += 1;
 
             String [] title = theTitle.split(",");
-            
-            System.out.println(title[0]);
 
             if(title[0].toLowerCase().equals(searched.toLowerCase())){
                 try {
-                    new BookPage(title[0], title[1], lineNumber,customer).setVisible(true);
+                    new BookPage(title[0], title[1], lineNumber,customer).setVisible(true); //if user's search matches a book, go to that book's page
                 } catch (IOException ex) {
                     Logger.getLogger(BrowseMenu.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -353,4 +366,4 @@ public class BrowseMenu extends javax.swing.JFrame {
     private javax.swing.JButton searchButton;
     private javax.swing.JButton searchButton1;
     // End of variables declaration//GEN-END:variables
-}
+}//end of BrowseMenu class
