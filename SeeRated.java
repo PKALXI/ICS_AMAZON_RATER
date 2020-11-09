@@ -370,7 +370,7 @@ public class SeeRated extends javax.swing.JFrame {
             line = bookInfo.nextLine().split(",");
             
             //makes next button invisible if no more books to cycle through
-            if (ratedBooks.size() == indexCount + 1) nextButton.setVisible(false);
+            if (ratedBooks.size() == nextCount) nextButton.setVisible(false);
 
             //displays book info, cover and star rating
             System.out.println(line[0]);
