@@ -381,7 +381,7 @@ public class SeeRated extends javax.swing.JFrame {
             starRating.setIcon(new javax.swing.ImageIcon("resized_Stars/" + getInt() + ".png"));
             bookCover.setIcon(new javax.swing.ImageIcon("images/" + (ratedBooks.get(indexCount)[0]) + ".jpg"));
         }
-    }//GEN-LAST:event_nextButtonActionPerformed
+    }//end nextButtonActionPerformed
 
     private void menuLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuLogoMouseClicked
         
@@ -443,7 +443,7 @@ public class SeeRated extends javax.swing.JFrame {
         else prevButton.setVisible(false);
         bookCover.setIcon(new javax.swing.ImageIcon("images/" + (ratedBooks.get(indexCount)[0]) + ".jpg")); 
         starRating.setIcon(new javax.swing.ImageIcon("resized_Stars/" + getInt() + ".png"));
-    }//GEN-LAST:event_prevButtonActionPerformed
+    }//end prevButtonActionPerformed
 
     // /**
     //  * @param args the command line arguments
