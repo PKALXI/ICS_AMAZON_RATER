@@ -64,13 +64,14 @@ public class SeeRated extends javax.swing.JFrame {
  public void getRatedBooks() {
     try {
             //preparing to read file containing books rated by user
-            File myFile = new File("stars/"+this.customer.getUsername()+"-rated.txt"); //pranav change!!!! help me!!! 
+            File myFile = new File("stars/"+this.customer.getUsername()+"-rated.txt");
             Scanner inputFile = new Scanner(myFile);
             
             //preparing to read from book database
-            File bookFile = new File("books.txt"); //pranav change!!!! help me!!! 
+            File bookFile = new File("books.txt"); 
             Scanner inputFile2 = new Scanner(bookFile);
 
+            //stores line read from books.txt and splits title, author etc. into separate indices
             ArrayList <String[]> lines = new ArrayList<>(); 
 
             //adds every line in books.txt to arraylist lines
