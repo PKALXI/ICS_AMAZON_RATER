@@ -364,12 +364,12 @@ public class SeeRated extends javax.swing.JFrame {
             nextCount++;
             indexCount++;
             
-            if (nextCount > 1) prevButton.setVisible(true); 
-            //makes previous button invisible if no books to cycle back to
-            else prevButton.setVisible(false);
+            //if you press next there's guaranteed to be a previous book
+            prevButton.setVisible(true); 
             
             line = bookInfo.nextLine().split(",");
             
+            //makes next button invisible if no more books to cycle through
             if (ratedBooks.size() == indexCount + 1) nextButton.setVisible(false);
 
             //displays book info, cover and star rating
@@ -433,14 +433,18 @@ public class SeeRated extends javax.swing.JFrame {
         indexCount--;
         nextCount--;
         
+        //if you're going to a previous book there's guaranteed to be a book after
+        nextButton.setVisible(true);
+        
+        //if no books to go back to make previous button invisible
+        if (nextCount > 1) prevButton.setVisible(true);
+        else prevButton.setVisible(false);
+        
         //displays book info, cover and star rating
         bookTitle = line[0];
         bookAuthor = line[1];
         jTextArea1.setText("Title: " + ratedBooks.get(indexCount)[1]);
         jTextArea2.setText("Author: " + ratedBooks.get(indexCount)[2]); 
-        nextButton.setVisible(true);
-        if (nextCount > 1) prevButton.setVisible(true);
-        else prevButton.setVisible(false);
         bookCover.setIcon(new javax.swing.ImageIcon("images/" + (ratedBooks.get(indexCount)[0]) + ".jpg")); 
         starRating.setIcon(new javax.swing.ImageIcon("resized_Stars/" + getInt() + ".png"));
     }//end prevButtonActionPerformed
