@@ -415,20 +415,6 @@ public class SeeRated extends javax.swing.JFrame {
     * displays information for previous book rated by user when previous button is pressed
     */
     private void prevButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevButtonActionPerformed
-        readReset();
-        int count = 1; //stores what line we're on in text file
-        String[] line = null;
-        
-        //cycles through books.txt until line 1 index before previously looked-at book is reached
-        while (bookInfo.hasNextLine()) {
-            line = bookInfo.nextLine().split(",");
-            if (count == nextCount - 1) {
-                break;
-            }
-            else {
-                count++;
-            }
-        }
         
         indexCount--;
         nextCount--;
@@ -441,8 +427,6 @@ public class SeeRated extends javax.swing.JFrame {
         else prevButton.setVisible(false);
         
         //displays book info, cover and star rating
-        bookTitle = line[0];
-        bookAuthor = line[1];
         jTextArea1.setText("Title: " + ratedBooks.get(indexCount)[1]);
         jTextArea2.setText("Author: " + ratedBooks.get(indexCount)[2]); 
         bookCover.setIcon(new javax.swing.ImageIcon("images/" + (ratedBooks.get(indexCount)[0]) + ".jpg")); 
