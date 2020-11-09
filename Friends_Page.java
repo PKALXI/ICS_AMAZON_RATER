@@ -22,49 +22,64 @@ public class Friends_Page extends javax.swing.JFrame {
     private Customer CurrentCust;
     /**
      * Creates new form Friends_Page
+     *@param UserCust the current Customer Object to pass on to pages that need the program, and to use to identify past chats
+     *@param a specific folder to put chats in, can pass in null for the default folder
      */
     public Friends_Page(Customer UserCust,String folder) throws IOException {
+        
+        //pass the feference (normally would use a deep copy but we need the same object referenced throughout all of the pages
         CurrentCust = UserCust;
+        
+        //****Old feature- currently removed
         String select;
         if(isFriends)
             select="Friend";
         else
             select="Chat";
+        //****
         
+        //load the file where the user's current chats are stored and load them to allow the user to select all of the chats that they have chatted in already.
         File userFile = new File(UserCust.getUsername()+select+".txt");
         System.out.println(UserCust.getUsername()+select+".txt");
-        if(!userFile.isFile())
-            userFile.createNewFile();
+             //create a new file if this is a new user to chats
+               if(!userFile.isFile())
+               userFile.createNewFile();
         
-        
+        //Declare a buffered reader to read the file.
         BufferedReader reader = new BufferedReader(new FileReader(userFile));
         
+        //measure the amount of lines in the user's file to get a length to put this into an array for showing the user.
         int lines = 0;
         while (reader.readLine() != null) lines++;
         reader.close();
         
+        //declare the current/starting array of visited chats.
         String[] list = new String[lines];
         
+        //declare a scanner to load the array
         Scanner loadList= new Scanner(userFile);
         
+        //iterate through each line and add it to the array
         for(int x=0;x<list.length;x++)
         {
             if(loadList.hasNextLine())
                 list[x]=loadList.nextLine();
-        }
-        this.clubs=list.clone();
+        }//for loop
         
-        this.user=UserCust.getUsername();
+        //create a deep copy of the array
+        this.clubs=list.clone();
       
+        //Set the active folder for use if not blank or null
         if(folder!=""&&folder!=null)
             this.storedAt=folder+"/";
         
         
         
+        //initialize  and declare components and make the page visible
+        this.user=UserCust.getUsername();
         initComponents();
-        
         this.setVisible(true);
-    }
+    }//Constructor method
 
     
 
@@ -274,18 +289,25 @@ public class Friends_Page extends javax.swing.JFrame {
         this.setVisible(false);
     }                                       
 
-    private void EnterButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    /**
+    *Processes the User's input to add the given text to the currently selected chat.
+    *@param evt the event that triggered this method ro run
+    */
+    private void EnterButtonActionPerformed(java.awt.event.ActionEvent evt) { 
+         //catch any errors inputting or outputting from the chat  
         try{
-        if(this.MessageInput.getText()!=""&&this.MessageInput.getText()!=null){
-            this.send(this.MessageInput.getText());
-            this.MessageInput.setText("");
-          } 
+            if(this.MessageInput.getText()!=""&&this.MessageInput.getText()!=null){
+                this.send(this.MessageInput.getText());
+                this.MessageInput.setText("");
+              }//if statement checking if the message contains any info 
         }catch(IOException E){
+            //error handling
             this.MessageDisplay.setText("ERROR! Please report this to a System Administrator.");
         }finally{
-        System.out.println("Enter Button");
-        }
-    }                                           
+            //Tracing Statement
+            //System.out.println("Enter Button");
+        }//try-catch-finally
+    }//EnterButtonActionPerformed                                           
 
     private void FriendSelectorActionPerformed(java.awt.event.ActionEvent evt) {                                               
         try{
@@ -327,32 +349,54 @@ public class Friends_Page extends javax.swing.JFrame {
         
     }
     
+    /**
+    *Sends a user's message to both the screen and the file that stores the current chat
+    *@param toSend the message to be printed
+    */
     private void send(String toSend) throws IOException{
-        System.out.println("Send");
+        //tracing
+        //System.out.println("Send");
+        //check if there is a valid file
         if(this.currentFile!=null){
+            
+            //write the message and the username to the chat file
             FileWriter fileToWrite= new FileWriter(this.currentFile,true);
             PrintWriter write= new PrintWriter(fileToWrite);
             write.println(this.user+": "+toSend);
             write.close();
-        }
+        }//file check
+        
+        //load the appended file
         this.loadFile(this.currentFile);
         
-    }
+    }//send method
     
+    /**
+    *loads the selected file to the Display of the current Friends_Page instance
+    *@param loadFrom the file object to load data from
+    */
     private void loadFile(File loadFrom)throws IOException{
+        
+        //update the current file of this instance
         this.currentFile=loadFrom;
-        System.out.println("ELoad File");
+        
+        //tracing
+        //System.out.println("ELoad File");
+        
+        //check if the user has used this chat before
         boolean userReg = false;
         for(String test:this.clubs){
             if((test+".txt").equals(loadFrom.getName()))
                 userReg=true;
-         }
+         }//for loop
         
+        //support from an older version, where friend chats and public were seperated
         String select;
         if(this.isFriends)
             select="Friend";
         else
             select="Chat";
+        
         
         File userFile = new File(this.user+select+".txt");
         
@@ -374,7 +418,7 @@ public class Friends_Page extends javax.swing.JFrame {
             this.clubs=tempClubs.clone();
             
             this.FriendSelector.addItem(toPrint);
-        }
+        }//if the user is not registered
             
         
         if(!loadFrom.isFile())
@@ -390,7 +434,7 @@ public class Friends_Page extends javax.swing.JFrame {
                     finalPrint+="\n"+load.nextLine();
                 this.MessageDisplay.setText(finalPrint);
             }
-    }
+    }//load
             
 
     // Variables declaration - do not modify                     
