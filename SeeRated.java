@@ -98,8 +98,8 @@ public class SeeRated extends javax.swing.JFrame {
     }//end of getRatedBooks method
     
     /**
-    * Gets filename for book's cover
-    * @return the filename of the book's cover
+    * Gets star rating for book
+    * @return how many stars the user rated the book that they're looking at
     */
     public int getInt(){
         File myFile = new File("stars/"+this.customer.getUsername()+"-rated.txt");
