@@ -229,7 +229,7 @@ public class BrowseMenu extends javax.swing.JFrame {
                 jTextArea2.setText(jTextArea2.getText() + String.join("", (title[0] + " by: " + title[1])) + "\n");
             }
         }
-    }// GEN-LAST:event_searchButtonActionPerformed
+    }//end searchButtonActionPerformed
 
     private void menuLogoMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_menuLogoMouseClicked
 
@@ -308,7 +308,7 @@ public class BrowseMenu extends javax.swing.JFrame {
                 break;
             }
         }
-    }//GEN-LAST:event_searchButton1ActionPerformed
+    }//end searchButton1ActionPerformed
 
     /**
      * @param args the command line arguments
