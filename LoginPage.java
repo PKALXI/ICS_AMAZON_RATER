@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-//package booksmart_app;
-
+//import nessessary libraries
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -14,6 +8,7 @@ import javax.swing.JOptionPane;
 
 
 /**
+ *Allows the user ot login and creates a Customer object corresponding to the logged in user.
  *
  * @author jaimoraes
  */
@@ -216,6 +211,23 @@ public class LoginPage extends javax.swing.JFrame {
      * 
      */
     private void returnUserInfo(){
+        
+        if(this.Username.equals("Admin")  && this.Password.equals("Admin")){
+            new AdminPanel(
+                new Customer(
+                    "Admin",
+                    "Admin",
+                    "Admin",
+                    "Admin",
+                    "Admin",
+                    new SurveyData("Admin","Admin","Admin")
+                )
+            ).setVisible(true);
+
+            this.setVisible(false);
+            return;
+        }//checking for administrator access
+        
         try{
         File scanFrom= new File(this.SEARCHFROM);
         
@@ -284,4 +296,4 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JTextField UsernameInput;
     private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
-}
+}//LoginPage class extension of javax.swing.jFrame
