@@ -134,12 +134,13 @@ public class SeeRated extends javax.swing.JFrame {
     */
     public void readReset() {
         File bookStuff = new File("books.txt");
+        //try-catch to initialize scanner to read from books.txt
         try { 
             bookInfo = new Scanner(bookStuff);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(SeeRated.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }//end of method readReset
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -392,33 +393,68 @@ public class SeeRated extends javax.swing.JFrame {
         }//end of if statement for when user clicks "Next Book" button
     }//end nextButtonActionPerformed
 
-    private void menuLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuLogoMouseClicked
-        
-    }//GEN-LAST:event_menuLogoMouseClicked
-
-    private void menuRecommendedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuRecommendedMouseClicked
-        new Recommend(this.customer).setVisible(true);
+    /**
+    * Goes to "Recommended" page when button in menu bar is clicked
+    */ 
+    private void menuRecommendedMouseClicked(java.awt.event.MouseEvent evt) {
+        new Recommend(customer).setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_menuRecommendedMouseClicked
+    }//end event menuRecommendedMouseClicked
 
-    private void menuRandomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuRandomMouseClicked
-        new RandomBook(this.customer).setVisible(true);
+    /**
+    * Goes to "Random" page when button in menu bar is clicked
+    */ 
+    private void menuRandomMouseClicked(java.awt.event.MouseEvent evt) {
+        new RandomBook(customer).setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_menuRandomMouseClicked
+    }//end event menuRandomMouseClicked
 
-    private void menuBrowseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBrowseMouseClicked
-        new BrowseMenu(this.customer).setVisible(true);
+    /**
+    * Goes to "Browse" page when button in menu bar is clicked
+    */ 
+    private void menuBrowseMouseClicked(java.awt.event.MouseEvent evt) {
+        new menuBrowse(customer).setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_menuBrowseMouseClicked
+    }//end event menuBrowseMouseClicked
 
-    private void menuRatedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuRatedMouseClicked
-        new mainMenu(customer).setVisible(true);
+    /**
+    * Returns to the main menu when the "Main Menu" button in menu bar is clicked
+    */   
+    private void menuMenuMouseClicked(java.awt.event.MouseEvent evt) {                                      
+        try {
+            new mainMenu(this.customer).setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         this.setVisible(false);
-    }//GEN-LAST:event_menuRatedMouseClicked
+    }//end event menuMenuMouseClicked
 
-    private void menuAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuAddMouseClicked
-    
-    }//GEN-LAST:event_menuAddMouseClicked
+    /**
+    * Goes to "Clubs" page when button in menu bar is clicked
+    */ 
+    private void clubsMenuMouseClicked(java.awt.event.MouseEvent evt) {                                       
+        //try-catch to go create instance of clubs page
+        try{
+            new Friends_Page(this.customer, null).setVisible(true);
+        }catch(Exception e){
+            e.printStackTrace();
+        } 
+        this.setVisible(false);
+    }//end event clubsMenuMouseClicked
+
+    /**
+    * Goes to "Add Books" page when button in menu bar is clicked
+    */ 
+    private void menuAddMouseClicked(java.awt.event.MouseEvent evt) {
+        //try-catch to create instance of addBooks page
+        try {
+            new addBooks(customer).setVisible(true);
+            this.setVisible(false);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }//end event menuAddMouseClicked
 
     /**
     * displays information for previous book rated by user when previous button is pressed
@@ -442,46 +478,7 @@ public class SeeRated extends javax.swing.JFrame {
         starRating.setIcon(new javax.swing.ImageIcon("resized_Stars/" + getInt() + ".png"));
     }//end prevButtonActionPerformed
 
-    // /**
-    //  * @param args the command line arguments
-    //  */
-    // public static void main(String args[]) {
-    //     /* Set the Nimbus look and feel */
-    //     //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-    //     /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-    //      * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-    //      */
-    //     try {
-    //         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-    //             if ("Nimbus".equals(info.getName())) {
-    //                 javax.swing.UIManager.setLookAndFeel(info.getClassName());
-    //                 break;
-    //             }
-    //         }
-    //     } catch (ClassNotFoundException ex) {
-    //         java.util.logging.Logger.getLogger(SeeRated.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    //     } catch (InstantiationException ex) {
-    //         java.util.logging.Logger.getLogger(SeeRated.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    //     } catch (IllegalAccessException ex) {
-    //         java.util.logging.Logger.getLogger(SeeRated.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    //     } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-    //         java.util.logging.Logger.getLogger(SeeRated.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    //     }
-    //     //</editor-fold>
-
-    //     /* Create and display the form */
-    //     java.awt.EventQueue.invokeLater(new Runnable() {
-    //         public void run() {
-    //             try {
-    //                 new SeeRated().setVisible(true);
-    //             } catch (IOException ex) {
-    //                 Logger.getLogger(SeeRated.class.getName()).log(Level.SEVERE, null, ex);
-    //             }
-    //         }
-    //     });
-    // }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify
     private javax.swing.JLabel bookCover;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
@@ -502,5 +499,5 @@ public class SeeRated extends javax.swing.JFrame {
     private javax.swing.JButton nextButton;
     private javax.swing.JButton prevButton;
     private javax.swing.JLabel starRating;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration
 }//End of class SeeRated
