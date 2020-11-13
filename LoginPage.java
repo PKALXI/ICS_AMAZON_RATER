@@ -15,10 +15,6 @@ import javax.swing.JOptionPane;
 
 public class LoginPage extends javax.swing.JFrame {
 
-    /**
-     * Creates new form LoginPage
-     */
-    
     //Username and password storage
     private String Username;
     private String Password;
@@ -154,30 +150,32 @@ public class LoginPage extends javax.swing.JFrame {
      */
     private void UsernameInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameInputActionPerformed
         this.Username=UsernameInput.getText();
+        //check for valid input
         if(this.Username!=null&&this.Password!=null)
-                returnUserInfo();
+                returnUserInfo();//try to enter user
         
         System.out.println("Username");
            
     }//GEN-LAST:event_UsernameInputActionPerformed
 
     /**
-    *
+    * Set the password text to 'Password' wehn not selected and emoty
     */
     private void PasswordInputFocusLost(java.awt.event.FocusEvent evt) {                                        
         if(PasswordInput.getText().equals("")){
             this.PasswordInput.setEchoChar((char)0);
             PasswordInput.setText("Password");
-        }
+        }//checking for blank text
             
-    }                                       
+    }//password inout focus lost                                  
     /**
-    *
+    * Set the username input to 'Username' if there is no text inputted there
     */
-    private void UsernameInputFocusLost(java.awt.event.FocusEvent evt) {                                        
+    private void UsernameInputFocusLost(java.awt.event.FocusEvent evt) { 
+        //check if the text is blank
         if(UsernameInput.getText().equals(""))
             UsernameInput.setText("Username");
-    }        
+    }//username input focus losy        
     
     /**
      * Clears the text field for the user when they click on PasswordInput
@@ -190,7 +188,7 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_PasswordInputFocusGained
 
     /**
-     * Clears the text field for the user when they click on UsernameInput
+     * Clears the text field for the user when they click on UsernameInput if they have not entered the suername
      * @param evt the FocusEvent that occurred
      */
     private void UsernameInputFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_UsernameInputFocusGained
@@ -198,6 +196,10 @@ public class LoginPage extends javax.swing.JFrame {
             UsernameInput.setText("");
     }//GEN-LAST:event_UsernameInputFocusGained
 
+    /**
+    *Check to see if the enter button is presses, and once it is, try and log in the user
+    *@param evt the action event of the button being pressed
+    */
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         this.Username=this.UsernameInput.getText();
         this.Password=this.PasswordInput.getText();
@@ -208,10 +210,11 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton1ActionPerformed
     
     /**
-     * 
+     * Attempts to log in the user
      */
     private void returnUserInfo(){
         
+        //check for administrator access
         if(this.Username.equals("Admin")  && this.Password.equals("Admin")){
             new AdminPanel(
                 new Customer(
@@ -221,26 +224,39 @@ public class LoginPage extends javax.swing.JFrame {
                     "Admin",
                     "Admin",
                     new SurveyData("Admin","Admin","Admin")
-                )
-            ).setVisible(true);
+                )//customer declaration
+            ).setVisible(true);//admin panel creation
 
-            this.setVisible(false);
+            this.dispose();//remove this jFrame once it is not needed
             return;
         }//checking for administrator access
         
-        try{
-        File scanFrom= new File(this.SEARCHFROM);
         
+        //try to access the User file and check for a valid username/password combo
+        try{
+          
+       //load a scanner to scan the file
+        File scanFrom= new File(this.SEARCHFROM);
         Scanner sc = new Scanner(scanFrom);
         
-        int count = 0;
+            //declare a count variable for the for loop, a a variable to chekc if the user is found
+            int count = 0;
             boolean userFound=false;
+            
+            //iterate through the file checking for a user
             while(sc.hasNextLine())
             {
+                //increment count and seperate line input in the file
                 count++;
                 String[] data= sc.nextLine().split(",");
+                
+                //check if the username is found
                 if(data[0].equals(this.Username)){
+                    
+                    //set that the user is found
                     userFound=true;
+                    
+                    //if the password is right
                     if(data[4].equals(this.Password)){
                         this.Login = new Customer();
                         this.Login.setUsername(data[0]);
@@ -257,37 +273,37 @@ public class LoginPage extends javax.swing.JFrame {
                             read = new Scanner(surveyData);
                         }catch(Exception e){
                             e.printStackTrace();
-                        }
+                        }//try-catch on reading surveydata for tracing
                         
                         int readCount = 1;
                         while(read.hasNextLine()){
                             String [] line = read.nextLine().split(",");
-                            if(readCount == count){
-                                
+                            if(readCount == count)
                                 this.Login.setSurveyData(new SurveyData(line[0], line[1], line[2]));
-                            }
-                        }
+                            
+                        }//while loop
+                        
 
                         JOptionPane.showMessageDialog(null, "You have successfully Logged in!");
                         
                         new mainMenu(this.Login).setVisible(true);
                         this.setVisible(false);
 
-                    }
+                    }//check if password is found if
                     else{
                        this.Password=null;
                        JOptionPane.showMessageDialog(null, "Incorrect Username or Password!");
-                    }
-                }
-            }
+                    }//incorrect username/password else
+                }//is correct username loop
+            }//iteration while loop
             if(!userFound){
                 this.Password=null;
                 JOptionPane.showMessageDialog(null, "Incorrect Username or Password!");
-            }
+            }//double checking for wrong username
         }catch(FileNotFoundException e){
                System.out.println("ERROR: FileNotFound");
-        }
-    }
+        }//catch on the original file finding try
+    }//return user info method
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
