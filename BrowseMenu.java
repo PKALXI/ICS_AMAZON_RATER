@@ -247,7 +247,7 @@ public class BrowseMenu extends javax.swing.JFrame {
     }//end event menuRandomMouseClicked
 
     /**
-    * Returns to the main menu when the "Browse" button in menu bar is clicked
+    * Returns to the main menu when the "Main Menu" button in menu bar is clicked
     */ 
     private void menuBrowseMouseClicked(java.awt.event.MouseEvent evt) {
         new mainMenu(customer).setVisible(true);
@@ -279,6 +279,19 @@ public class BrowseMenu extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//end event menuAddMouseClicked
+    
+    /**
+    * Goes to "Clubs" page when button in menu bar is clicked
+    */ 
+    private void clubsMenuMouseClicked(java.awt.event.MouseEvent evt) {                                       
+        //try-catch to go create instance of clubs page
+        try{
+            new Friends_Page(this.customer, null).setVisible(true);
+        }catch(Exception e){
+            e.printStackTrace();
+        } 
+        this.setVisible(false);
+    }//end event clubsMenuMouseClicked
 
     /**
     * Accesses specific book page for book searched for in lower search bar by user
@@ -301,11 +314,12 @@ public class BrowseMenu extends javax.swing.JFrame {
             String [] title = theTitle.split(",");
 
             if(title[0].toLowerCase().equals(searched.toLowerCase())){
+                //try-catch creating instance of BookPage with matched book
                 try {
                     new BookPage(title[0], title[1], lineNumber, customer).setVisible(true); //if user's search matches a book, go to that book's page. otherwise, do nothing
                 } catch (IOException ex) {
                     Logger.getLogger(BrowseMenu.class.getName()).log(Level.SEVERE, null, ex); 
-                }
+                }//end of try-catch statement
                 this.setVisible(false);
                 break;
             }//end of if statement taking user to page for book matching what's input into the lower search bar
