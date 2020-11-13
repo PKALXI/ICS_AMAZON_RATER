@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 public class BrowseMenu extends javax.swing.JFrame {
 
     //preparing to read from books.txt
-    File bookStuff = new File("books.txt");
+    File bookStuff = new File("data/books.txt");
     Scanner bookInfo;
 
     private Customer customer;
@@ -73,12 +73,6 @@ public class BrowseMenu extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(67, 55, 53));
         jLabel2.setText("Browse");
 
-        searchBar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchBarActionPerformed(evt);
-            }
-        });
-
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,12 +84,6 @@ public class BrowseMenu extends javax.swing.JFrame {
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 
-        searchBar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchBar1ActionPerformed(evt);
-            }
-        });
-
         searchButton1.setText("Go To Book");
         searchButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,12 +93,8 @@ public class BrowseMenu extends javax.swing.JFrame {
 
         jMenuBar1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        menuLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("logo_Menu.png"))); // NOI18N
-        menuLogo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuLogoMouseClicked(evt);
-            }
-        });
+        menuLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("logos/logo_Menu.png"))); // NOI18N
+
         jMenuBar1.add(menuLogo);
 
         menuRecommended.setText("Recommended");
@@ -250,7 +234,7 @@ public class BrowseMenu extends javax.swing.JFrame {
     * Returns to the main menu when the "Main Menu" button in menu bar is clicked
     */ 
     private void menuBrowseMouseClicked(java.awt.event.MouseEvent evt) {
-        new mainMenu(customer).setVisible(true);
+        new mainMenu(customer, false).setVisible(true);
         this.setVisible(false);
     }//end event menuBrowseMouseClicked
 
