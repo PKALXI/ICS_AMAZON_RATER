@@ -6,7 +6,7 @@
 * Assumptions: 
 **/
 
-//allows page to read from an external file, use of arraylists
+//allows page to read from an external file, use of arraylists and dialogue boxes
 import java.io.*;
 import java.util.*;
 import java.util.logging.Level;
@@ -27,7 +27,7 @@ public class SeeRated extends javax.swing.JFrame {
     private Customer customer;
 
     /**
-     * Creates new form SeeRated
+     * Creates new form SeeRated, displays the first book they've rated, or, if they haven't rated anything yet, nothing
      */
     public SeeRated(Customer customer) throws IOException{
         try {
@@ -42,20 +42,28 @@ public class SeeRated extends javax.swing.JFrame {
 
         getRatedBooks();
                 
-        starRating.setVisible(true);
-        
-        prevButton.setVisible(false);//makes previous button invisible on first book being cycled through
-        
-        bookCover.setIcon(new javax.swing.ImageIcon("images/" + (ratedBooks.get(indexCount)[0]) + ".jpg")); //sets book cover to that of book being cycled through
+        if (ratedBooks.size() > 0){ 
+            starRating.setVisible(true);
 
-        line = bookInfo.nextLine().split(",");//stores book information (author, genre, title) for single book in individual indices
+            prevButton.setVisible(false);//makes previous button invisible on first book being cycled through
 
-        bookTitle = line[0];
-        bookAuthor = line[1];
-        //displays title and author of book being cycled through
-        jTextArea1.setText("Title: " + ratedBooks.get(indexCount)[1]);
-        jTextArea2.setText("Author: " + ratedBooks.get(indexCount)[2]);
-        starRating.setIcon(new javax.swing.ImageIcon("resized_Stars/" + getInt() + ".png")); //sets star rating to that of book being cycled through
+            bookCover.setIcon(new javax.swing.ImageIcon("images/" + (ratedBooks.get(indexCount)[0]) + ".jpg")); //sets book cover to that of book being cycled through
+
+            line = bookInfo.nextLine().split(",");//stores book information (author, genre, title) for single book in individual indices
+
+            bookTitle = line[0];
+            bookAuthor = line[1];
+            //displays title and author of book being cycled through
+            jTextArea1.setText("Title: " + ratedBooks.get(indexCount)[1]);
+            jTextArea2.setText("Author: " + ratedBooks.get(indexCount)[2]);
+            starRating.setIcon(new javax.swing.ImageIcon("resized_Stars/" + getInt() + ".png")); //sets star rating to that of book being cycled through
+        }//end of if statement for when user has rated at least one book
+        else {
+            JOptionPane.showMessageDialog(null, "You have not rated any books on this account. Check the user manual for instructions on how to start rating books.");
+            prevButton.setVisible(false);
+            nextButton.setVisible(false);
+            starRating.setVisible(false);
+        }//end of if statement for when user has not yet rated any books
     }//end of SeeRated method
 
 /**
@@ -63,7 +71,7 @@ public class SeeRated extends javax.swing.JFrame {
  */
  public void getRatedBooks() {
     try {
-            //preparing to read file containing books rated by user
+            //preparing to read file containing books rated by user (rated.txt)
             File myFile = new File("stars/"+this.customer.getUsername()+"-rated.txt");
             Scanner inputFile = new Scanner(myFile);
             
@@ -77,7 +85,7 @@ public class SeeRated extends javax.swing.JFrame {
             //adds every line in books.txt to arraylist lines
             while(inputFile2.hasNextLine()){
                 lines.add(inputFile2.nextLine().split(","));
-            }
+            }//end of while loop adding every line in books.txt to arraylist lines
 
             //adds book in arraylist line to arraylist ratedbooks if it has been rated by the user
             while(inputFile.hasNextLine()){
@@ -89,9 +97,9 @@ public class SeeRated extends javax.swing.JFrame {
                             line[0],
                             line[1]
                         });
-                    }
-                }
-            }
+                    }//end of if statement comparing line in books.txt to line in seeRated.txt
+                }//end of for loop reading through arraylist of books.txt's lines
+            }//end of while loop for reading through user's rated.txt 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(SeeRated.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -116,9 +124,9 @@ public class SeeRated extends javax.swing.JFrame {
             String arr[] = temp.split(",");
             if(Integer.parseInt(ratedBooks.get(indexCount)[0]) == Integer.parseInt(arr[2])){
                 return Integer.parseInt(arr[1]);
-            }
-        }   
-        return 0;
+            }//end of if statement returning star rating of book in ratedBooks arraylist
+        }//end of while loop making string variable temp from line in user's rated.txt and string array arr from split version of temp
+        return 0; //default return statement
     }//end of getInt method
     
     /**
@@ -353,12 +361,12 @@ public class SeeRated extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }//end of init.Components
 
     /**
-    * displays information for next book rated by user when next button is pressed
+    * displays information for next book rated by user when "next book" button is pressed
     */
-    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {
         
         if (bookInfo.hasNextLine()) { 
             nextCount++;
@@ -367,6 +375,7 @@ public class SeeRated extends javax.swing.JFrame {
             //if you press next there's guaranteed to be a previous book
             prevButton.setVisible(true); 
             
+            //splits specific pieces of information into array indices
             line = bookInfo.nextLine().split(",");
             
             //makes next button invisible if no more books to cycle through
@@ -380,7 +389,7 @@ public class SeeRated extends javax.swing.JFrame {
             jTextArea2.setText("Author: " + ratedBooks.get(indexCount)[2]);
             starRating.setIcon(new javax.swing.ImageIcon("resized_Stars/" + getInt() + ".png"));
             bookCover.setIcon(new javax.swing.ImageIcon("images/" + (ratedBooks.get(indexCount)[0]) + ".jpg"));
-        }
+        }//end of if statement for when user clicks "Next Book" button
     }//end nextButtonActionPerformed
 
     private void menuLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuLogoMouseClicked
