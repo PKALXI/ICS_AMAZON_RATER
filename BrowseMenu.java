@@ -26,11 +26,12 @@ public class BrowseMenu extends javax.swing.JFrame {
     public BrowseMenu(Customer customer) {
         this.customer = customer;
         initComponents();
+        //try-catch statement initializing scanenr that reads from books.txt
         try {
             this.bookInfo = new Scanner(bookStuff);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(BrowseMenu.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }//end of try-catch statement
     }//end of method BrowseMenu
 
      /**
@@ -198,15 +199,28 @@ public class BrowseMenu extends javax.swing.JFrame {
     /**
     * Displays list of books which pertain to search made by user in upper searchbar
     */    
-    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_searchButtonActionPerformed
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        //try-catch statement
         try {
             readReset();//starts scanner at beginning of books.txt to compare all books listed with user's search
         } catch (IOException ex) {
             Logger.getLogger(BrowseMenu.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }//end of try-catch statement
         jTextArea2.setText("");//sets jTextArea2 (where book list is displays) blank in case there are books listed there from a prior search
         String searched = "";//stores string entered in upper search bar by user
         searched = searchBar.getText();
+        
+        //if user enters keyword for help page, take them to the help page
+        if (searched.equals("!help")){
+            //try-catch statement creates instance of HelpPage.java
+            try {
+                new HelpPage("Help.txt", customer).setVisible(true);
+                this.dispose();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }//end of try-catch statement
+        }//end of if statement
+        
         String theTitle = "";//stores titles of books in books.txt to be compared to searched
         while (bookInfo.hasNextLine()) {
             theTitle = bookInfo.nextLine();
@@ -215,8 +229,8 @@ public class BrowseMenu extends javax.swing.JFrame {
 
             if (theTitle.toLowerCase().contains(searched.toLowerCase())) { //displays list of books with information that matches what the user searched
                 jTextArea2.setText(jTextArea2.getText() + String.join("", (title[0] + " by: " + title[1])) + "\n");
-            }
-        }
+            }//end of if statement
+        }//end of while loop looping through books.txt
     }//end event searchButtonActionPerformed
 
     /**
@@ -251,7 +265,6 @@ public class BrowseMenu extends javax.swing.JFrame {
             new SeeRated(customer).setVisible(true);
             this.dispose();
         } catch (IOException e) {
-            // Auto-generated catch block
             e.printStackTrace();
         }
     }//end event menuRatedMouseClicked
@@ -264,7 +277,6 @@ public class BrowseMenu extends javax.swing.JFrame {
             new addBooks(customer).setVisible(true);
             this.dispose();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }//end event menuAddMouseClicked
