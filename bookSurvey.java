@@ -196,8 +196,8 @@ public class bookSurvey extends javax.swing.JFrame {
     private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {                                        
         if (jTextField1.getText().equals("Type here...")){
             jTextField1.setText("");
-        }
-    }                                       
+        }//end of if statement
+    }//end of method jTextField1Gained                                      
 
     /**
     * If user clicks on jTextField1 but doesn't type anything and clicks off, revert textfield back to displaying sample text "Type here"
@@ -205,8 +205,8 @@ public class bookSurvey extends javax.swing.JFrame {
     private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {                                      
         if (jTextField1.getText().equals("")){
             jTextField1.setText("Type here...");
-        }
-    }                                     
+        }//end of if statement
+    }//end of method jTextField1FocusLost                                      
 
     /**
     * Makes jTextField2 (where user enters favourite books) blank when clicked on for first time by user
@@ -214,8 +214,8 @@ public class bookSurvey extends javax.swing.JFrame {
     private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {                                        
         if (jTextField2.getText().equals("Type here...")){
             jTextField2.setText("");
-        }
-    }                                       
+        }//end of if statement
+    }//end of method jTextField2FocusGained                                      
 
     /**
     * If user clicks on jTextField1 but doesn't type anything and clicks off, revert textfield back to displaying sample text "Type here"
@@ -223,8 +223,8 @@ public class bookSurvey extends javax.swing.JFrame {
     private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {                                      
         if (jTextField2.getText().equals("")){
             jTextField2.setText("Type here...");
-        }
-    }                                     
+        }//end of if statement
+    }//end of method jTextField2FocusLost                                      
 
     /**
     * Makes jTextField3 (where user enters favourite authors) blank when clicked on for first time by user
@@ -232,8 +232,8 @@ public class bookSurvey extends javax.swing.JFrame {
     private void jTextField3FocusGained(java.awt.event.FocusEvent evt) {                                        
         if (jTextField3.getText().equals("Type here...")){
             jTextField3.setText("");
-        }
-    }                                       
+        }//end of if statement
+    }//end of method jTextField3FocusGained                                       
 
     /**
     * If user clicks on jTextField1 but doesn't type anything and clicks off, revert textfield back to displaying sample text "Type here"
@@ -241,8 +241,8 @@ public class bookSurvey extends javax.swing.JFrame {
     private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {                                      
         if (jTextField3.getText().equals("")){
             jTextField3.setText("Type here...");
-        }
-    }                                     
+        }//end of if statement
+    }//end of method jTextField3FocusLost                                     
 
     /**
     * instantiates setSurveyData with user's answers when user clicks "Submit" button
@@ -258,7 +258,7 @@ public class bookSurvey extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         setSurveyData("none", "none", "none");
         JOptionPane.showMessageDialog(null, "You have been fully registered!");
-    }                                         
+    }//end of method jButton2ActionPerformed                                         
 
     /**
      * @param args the command line arguments
@@ -308,4 +308,4 @@ public class bookSurvey extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration                   
-}//end of class BookSurvey         
+}//end of class BookSurvey
