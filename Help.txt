@@ -1,0 +1,37 @@
+REGISTRATION
+------------
+Upon starting the booksmart program, you will be met with a screen giving you the choice to either sign up for the service or sign in to an existing account. For first-time users, pick the first option and enter the information prompted, including your name, email, username and password. A small survey will also be provided in order for us to gage what your tastes and preferences are. Separate your choices by commas. Alternatively, you can click the “Skip” button and bypass the survey if you wish.
+
+WEBSITE LAYOUT
+--------------
+Upon reaching the home page, you will be met with a breadth of different pages to visit:
+
+Recommended
+– Our book recommendation algorithm will present a selection of books that it predicts will satisfy your tastes. Refresh the page to get a different selection.
+Random
+– If you want something different but don’t have anything specific in mind, this page will present a selection of totally random books for you to look at. Refresh the page to get a different selection.
+Browse
+– Search for specific books, either by title, author or genre using the upper search bar. Use the bottom search bar to access the specific page for that book
+See Rated
+– Cycle through every book you have rated on your booksmart account
+Add Books
+– Found a hidden gem that you want to share with the rest of the platform? Fill out the book’s information to submit a new book to booksmart’s database
+Clubs
+– Discuss book-related topics with the booksmart community
+
+FINDING A BOOK
+--------------
+Visit the "Browse" page and search the database for the book you’re interested in using the upper search bar. If it’s listed, use the lower search bar to access the book’s page. If it isn’t listed, use the "Add Books" feature to add it to our database.
+
+Once you’re on the individual page for your book of choice, you can rate it by typing your rating out of 5 into the given text field and clicking “Rate the Book.” Visit your page to see a history of every book you’ve given a star rating.
+
+Once you’ve accessed the “Add Books” page, fill out the book information required (title, author, genre, cover image file path) in the correct text fields and input them.
+
+OTHER IMPORTANT INFORMATION
+---------------------------
+
+Is there something you want to discuss with the booksmart community? Access the "Clubs" page via the menu bar, and create a discussion topic by entering a topic name in the upper text bar. Use the drop down arrow beside it to access and participate in other users’ clubs. Once you’ve accessed a club, enter a message in the lower search bar and click “Enter” to submit a message.
+
+If you’re having trouble using the site in anyway, access this help page by typing “!help” into the upper search bar and clicking “Search.”
+
+Happy Reading!
