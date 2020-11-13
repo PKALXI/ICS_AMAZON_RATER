@@ -178,7 +178,7 @@ public class bookSurvey extends javax.swing.JFrame {
         final String FILENAME = "SurveyData.txt";
         FileWriter fw;
         
-
+        //try-catch createst external file and writes user data from survey to it
         try{
             fw = new FileWriter(FILENAME, true);
 
@@ -187,7 +187,7 @@ public class bookSurvey extends javax.swing.JFrame {
             fw.close();//closes fileWriter to conserve memory
         }catch(Exception e){
             e.printStackTrace();
-        }
+        }//end of try-catch statement
     }//end of setSurveyData method    
     
     /**
