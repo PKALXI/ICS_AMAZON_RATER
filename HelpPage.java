@@ -10,16 +10,18 @@ import java.util.Scanner;
 public class HelpPage extends javax.swing.JFrame {
 
     private File helpPage;
+    private Customer user;
     /**
      * Creates new form HelpPage
      *Initiates components, sets the text of the help window, set the frame to visible
      */
-    public HelpPage(String helpPath) throws FileNotFoundException {
+    public HelpPage(String helpPath, Customer nextuser) throws FileNotFoundException {
         initComponents();
         this.helpPage= new File(helpPath);
         this.load();
         this.setVisible(true);
-    }//Constructor
+        this.user= new Customer(nextuser);
+    }//constructor
 
     /**
     *NOT COMMENTED AS THIS IS AUTOMATIC
@@ -154,29 +156,73 @@ public class HelpPage extends javax.swing.JFrame {
 
     
 //PRANAV add stuff for this menu
+    /**
+    *Opens the browse page if the menu button is clicked
+    *@param evt the action event caused by the selection of the menu
+    */
     private void BrowseMouseClicked(java.awt.event.MouseEvent evt) {                                    
-        // TODO add your handling code here:
-    }                                   
+        new BrowseMenu(CurrentCust).setVisible(true);
+        this.setVisible(false);
+    }//BrowseMenuMouseClicked                                   
 
+    /**
+    *Opens the recommended page if the menu button is clicked
+    *@param evt the action event caused by the selection of the menu
+    */
     private void RecommendedMouseClicked(java.awt.event.MouseEvent evt) {                                         
-        // TODO add your handling code here:
-    }                                        
+        new Recommend(CurrentCust).setVisible(true);
+        this.setVisible(false);
+    }//RecommendedMouseClicked                                        
 
+    /**
+    *Opens the Random Book page if the menu button is clicked
+    *@param evt the action event caused by the selection of the menu
+    */
     private void RandomBookMouseClicked(java.awt.event.MouseEvent evt) {                                        
-        // TODO add your handling code here:
-    }                                       
+         new RandomBook(CurrentCust).setVisible(true);
+        this.setVisible(false);
+    }//RandomBookMouseClicked                                       
 
+    /**
+    *Opens the browse page if the menu button is clicked
+    *@param evt the action event caused by the selection of the menu
+    */
     private void ChatsMouseClicked(java.awt.event.MouseEvent evt) {                                   
-        // TODO add your handling code here:
+        try{
+            new Friends_Page(this.customer, null).setVisible(true);
+        }catch(Exception e){
+            e.printStackTrace();
+        }//try-catch
+        
+        this.setVisible(false); 
     }                                  
 
+    /**
+    *Opens the add books page if the menu button is clicked
+    *@param evt the action event caused by the selection of the menu
+    */
     private void AddBooksMouseClicked(java.awt.event.MouseEvent evt) {                                      
-        // TODO add your handling code here:
-    }                                     
+        try {
+            new addBooks(CurrentCust).setVisible(true);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }//try-catch
+        this.setVisible(false);
+    }//AddBooksmouseClicked                                     
 
+    /**
+    *
+    *@param evt the action event caused by the selection of the menu
+    */
     private void BooksRatedMouseClicked(java.awt.event.MouseEvent evt) {                                        
-        // TODO add your handling code here:
-    }                                       
+        try {
+            new SeeRated(CurrentCust).setVisible(true);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }//try-catch
+        this.setVisible(false);
+    }//BooksRatedMouseClicked                                       
 
     /**
     *Loads the help file to the screen
