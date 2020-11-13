@@ -1,4 +1,3 @@
-
 /**
 * This page lets the user search for specific books, either by title, author or genre – they can then use the bottom search bar to access the specific page for that book
 * Author: Luke Cihra
@@ -32,7 +31,7 @@ public class BrowseMenu extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(BrowseMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }//end of method BrowseMenu
 
      /**
      * resets scanner reading external books.txt file to start at beginning
@@ -40,7 +39,7 @@ public class BrowseMenu extends javax.swing.JFrame {
     public void readReset() throws IOException {
         File bookStuff = new File("books.txt");
         bookInfo = new Scanner(bookStuff);
-    }
+    }//end of method readReset
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -205,7 +204,7 @@ public class BrowseMenu extends javax.swing.JFrame {
                         .addGap(25, 25, 25)));
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }//end of initComponents
 
     /**
     * Displays list of books which pertain to search made by user in upper searchbar
@@ -229,28 +228,36 @@ public class BrowseMenu extends javax.swing.JFrame {
                 jTextArea2.setText(jTextArea2.getText() + String.join("", (title[0] + " by: " + title[1])) + "\n");
             }
         }
-    }//end searchButtonActionPerformed
+    }//end event searchButtonActionPerformed
 
-    private void menuLogoMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_menuLogoMouseClicked
-
-    }// GEN-LAST:event_menuLogoMouseClicked
-
-    private void menuRecommendedMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_menuRecommendedMouseClicked
+    /**
+    * Goes to "Recommended" page when button in menu bar is clicked
+    */ 
+    private void menuRecommendedMouseClicked(java.awt.event.MouseEvent evt) {
         new Recommend(customer).setVisible(true);
         this.setVisible(false);
-    }// GEN-LAST:event_menuRecommendedMouseClicked
+    }//end event menuRecommendedMouseClicked
 
-    private void menuRandomMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_menuRandomMouseClicked
+    /**
+    * Goes to "Random" page when button in menu bar is clicked
+    */ 
+    private void menuRandomMouseClicked(java.awt.event.MouseEvent evt) {
         new RandomBook(customer).setVisible(true);
         this.setVisible(false);
-    }// GEN-LAST:event_menuRandomMouseClicked
+    }//end event menuRandomMouseClicked
 
-    private void menuBrowseMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_menuBrowseMouseClicked
+    /**
+    * Refreshes the "Browse" page when button in menu bar is clicked
+    */ 
+    private void menuBrowseMouseClicked(java.awt.event.MouseEvent evt) {
         new mainMenu(customer).setVisible(true);
         this.setVisible(false);
-    }// GEN-LAST:event_menuBrowseMouseClicked
+    }//end event menuBrowseMouseClicked
 
-    private void menuRatedMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_menuRatedMouseClicked
+    /**
+    * Goes to "Books You've Rated" page when button in menu bar is clicked
+    */ 
+    private void menuRatedMouseClicked(java.awt.event.MouseEvent evt) {
         try {
             new SeeRated(customer).setVisible(true);
             this.setVisible(false);
@@ -258,9 +265,12 @@ public class BrowseMenu extends javax.swing.JFrame {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-    }// GEN-LAST:event_menuRatedMouseClicked
+    }//end event menuRatedMouseClicked
 
-    private void menuAddMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_menuAddMouseClicked
+    /**
+    * Goes to "Add Books" page when button in menu bar is clicked
+    */ 
+    private void menuAddMouseClicked(java.awt.event.MouseEvent evt) {
         try {
             new addBooks(customer).setVisible(true);
             this.setVisible(false);
@@ -268,16 +278,7 @@ public class BrowseMenu extends javax.swing.JFrame {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-    }//GEN-LAST:event_menuAddMouseClicked
-
-    private void searchBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBarActionPerformed
-        
-    }//GEN-LAST:event_searchBarActionPerformed
-
-    private void searchBar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBar1ActionPerformed
-        
-    }//GEN-LAST:event_searchBar1ActionPerformed
-
+    }//end event menuAddMouseClicked
 
     /**
     * Accesses specific book page for book searched for in lower search bar by user
@@ -288,6 +289,7 @@ public class BrowseMenu extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(BrowseMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         String searched = "";//stores string entered in lower search bar by user
         searched = searchBar1.getText();
         String theTitle = "";//stores titles of books in books.txt to be compared to searched
@@ -300,15 +302,15 @@ public class BrowseMenu extends javax.swing.JFrame {
 
             if(title[0].toLowerCase().equals(searched.toLowerCase())){
                 try {
-                    new BookPage(title[0], title[1], lineNumber,customer).setVisible(true); //if user's search matches a book, go to that book's page
+                    new BookPage(title[0], title[1], lineNumber, customer).setVisible(true); //if user's search matches a book, go to that book's page. otherwise, do nothing
                 } catch (IOException ex) {
-                    Logger.getLogger(BrowseMenu.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(BrowseMenu.class.getName()).log(Level.SEVERE, null, ex); 
                 }
                 this.setVisible(false);
                 break;
-            }
-        }
-    }//end searchButton1ActionPerformed
+            }//end of if statement taking user to page for book matching what's input into the lower search bar
+        }//end of while loop cycling through books in books.txt to compare to what's input into the lower search bar
+    }//end of event searchButton1ActionPerformed
 
     /**
      * @param args the command line arguments
