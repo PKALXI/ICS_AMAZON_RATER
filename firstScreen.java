@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-//package com.mycompany.booksmart_app;
+package com.mycompany.booksmartmav;
 
 /**
- *
+ * Greets the user when the first open the program and allows them to access the login and register pages
+ * 
  * @author Andreja
  */
 public class firstScreen extends javax.swing.JFrame {
@@ -33,7 +29,7 @@ public class firstScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/Real Logo.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("logos/Real Logo.png")); // NOI18N
         jLabel2.setText("jLabel2");
 
         jButton1.setText("Register");
@@ -80,14 +76,22 @@ public class firstScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * The button pressed action event to goes the the register page
+     * @param evt The mouse action event
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new Register().setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * The button pressed action event to goes the the login page
+     * @param evt The mouse action event
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         new LoginPage().setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -131,4 +135,5 @@ public class firstScreen extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
-}
+    
+}//End of class FirstScreen
