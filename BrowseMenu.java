@@ -144,6 +144,11 @@ public class BrowseMenu extends javax.swing.JFrame {
 
         menuClubs.setText("Clubs");
         menuClubs.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        menuClubs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clubsMenuMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(menuClubs);
 
         setJMenuBar(jMenuBar1);
@@ -219,7 +224,7 @@ public class BrowseMenu extends javax.swing.JFrame {
     */ 
     private void menuRecommendedMouseClicked(java.awt.event.MouseEvent evt) {
         new Recommend(customer).setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//end event menuRecommendedMouseClicked
 
     /**
@@ -227,7 +232,7 @@ public class BrowseMenu extends javax.swing.JFrame {
     */ 
     private void menuRandomMouseClicked(java.awt.event.MouseEvent evt) {
         new RandomBook(customer).setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//end event menuRandomMouseClicked
 
     /**
@@ -235,7 +240,7 @@ public class BrowseMenu extends javax.swing.JFrame {
     */ 
     private void menuBrowseMouseClicked(java.awt.event.MouseEvent evt) {
         new mainMenu(customer, false).setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//end event menuBrowseMouseClicked
 
     /**
@@ -244,7 +249,7 @@ public class BrowseMenu extends javax.swing.JFrame {
     private void menuRatedMouseClicked(java.awt.event.MouseEvent evt) {
         try {
             new SeeRated(customer).setVisible(true);
-            this.setVisible(false);
+            this.dispose();
         } catch (IOException e) {
             // Auto-generated catch block
             e.printStackTrace();
@@ -257,7 +262,7 @@ public class BrowseMenu extends javax.swing.JFrame {
     private void menuAddMouseClicked(java.awt.event.MouseEvent evt) {
         try {
             new addBooks(customer).setVisible(true);
-            this.setVisible(false);
+            this.dispose();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
