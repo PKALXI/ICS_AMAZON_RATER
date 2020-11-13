@@ -247,7 +247,7 @@ public class BrowseMenu extends javax.swing.JFrame {
     }//end event menuRandomMouseClicked
 
     /**
-    * Refreshes the "Browse" page when button in menu bar is clicked
+    * Returns to the main menu when the "Browse" button in menu bar is clicked
     */ 
     private void menuBrowseMouseClicked(java.awt.event.MouseEvent evt) {
         new mainMenu(customer).setVisible(true);
@@ -262,7 +262,7 @@ public class BrowseMenu extends javax.swing.JFrame {
             new SeeRated(customer).setVisible(true);
             this.setVisible(false);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
+            // Auto-generated catch block
             e.printStackTrace();
         }
     }//end event menuRatedMouseClicked
